@@ -35,7 +35,7 @@ const HowItWorks: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">How Amatra Works</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Building your dream wardrobe has never been easier. Here's how Amatra helps you look your best.
+            Building your social fashion presence has never been easier. Here's how Amatra helps you share your style with the world.
           </p>
         </div>
         
@@ -43,28 +43,28 @@ const HowItWorks: React.FC = () => {
           <div className="space-y-12">
             <Step 
               number={1} 
-              title="Create Your Profile" 
-              description="Tell us about your style preferences, sizes, and budget. The more we know, the better we can help you create your ideal wardrobe."
+              title="Add Clothes You Love" 
+              description="Upload items from your wardrobe or add pieces you're eyeing. Build your personal fashion collection with product links."
             />
             <Step 
               number={2} 
-              title="AI Analyzes Your Style" 
-              description="Our advanced AI processes your preferences and identifies the perfect pieces from Amazon's vast catalog."
+              title="Mix & Match with AI" 
+              description="Our AI helps you create amazing outfit combinations from your collection. Discover new ways to wear what you already own."
             />
             <Step 
               number={3} 
-              title="Browse Curated Outfits" 
-              description="Explore AI-generated outfit recommendations tailored to your style and budget."
+              title="Share Your Outfits" 
+              description="Post your favorite looks with product links. Let others copy your style and earn from your referral links."
             />
             <Step 
               number={4} 
-              title="Build Your Wardrobe" 
-              description="Purchase items directly through Amazon and add them to your virtual wardrobe in Amatra."
+              title="Get Social & Inspired" 
+              description="Follow other fashion lovers, like their outfits, and get inspired. Build your community of style enthusiasts."
             />
             <Step 
               number={5} 
-              title="Get Ongoing Recommendations" 
-              description="Receive new outfit ideas and wardrobe additions based on your existing pieces and evolving style."
+              title="Become a Style Influencer" 
+              description="Grow your following as people love and copy your outfits. Track your fashion influence and earnings from referrals."
             />
           </div>
         </div>

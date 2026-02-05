@@ -24,15 +24,15 @@ const Newsletter: React.FC = () => {
           style={{ backgroundColor: `${colors.tint}10` }}
         >
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-4">Be the First to Know</h2>
+            <h2 className="text-3xl font-bold mb-4">Join the Fashion Revolution</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Join our waitlist to get early access when Amatra launches. We'll also send you exclusive fashion tips and insights.
+              Be the first to experience the future of social fashion. Get early access and exclusive fashion insights.
             </p>
           </div>
           
           {isSubmitted ? (
             <div className="text-center p-4 bg-green-50 rounded-lg max-w-md mx-auto">
-              <p className="text-green-600">Thanks for joining our waitlist! We'll be in touch soon.</p>
+              <p className="text-green-600">Thanks for joining! We'll notify you when Amatra launches.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="max-w-md mx-auto">
@@ -51,7 +51,7 @@ const Newsletter: React.FC = () => {
                   style={{ backgroundColor: colors.tint }}
                   onClick={() => window.open('https://x.com/_AMATRA_', '_blank')}
                 >
-                  Join Waitlist
+                  Join Community
                 </button>
               </div>
             </form>

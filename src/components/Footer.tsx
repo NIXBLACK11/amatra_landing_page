@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center">
               <span className="text-2xl font-bold" style={{ color: colors.tint }}>amatra</span>
             </div>
-            <p className="text-gray-600 mt-2">Your AI wardrobe stylist</p>
+            <p className="text-gray-600 mt-2">Your social fashion companion</p>
           </div>
           
           <div className="flex flex-wrap gap-8 justify-center">

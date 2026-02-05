@@ -12,10 +12,10 @@ const Hero: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-12 md:mb-0">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Create Your Perfect Wardrobe with <span style={{ color: colors.tint }}>AI</span>
+              Share Your <span style={{ color: colors.tint }}>AI</span>-Styled Outfits
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Amatra uses AI to curate personalized outfits from Amazon products, helping you build a wardrobe you'll love.
+              Amatra is a social app where you share outfits with links, mix & match with AI, and inspire others to copy your style.
             </p>
             <div className="flex flex-col sm:flex-row gap-4" onClick={() => {
                 
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
                 style={{ backgroundColor: colors.tint }}
                 onClick={() => window.open('https://x.com/_AMATRA_', '_blank')}
               >
-                Get Notified
+                Join Community
               </button>
               {/* <button className="px-8 py-4 rounded-lg font-medium text-lg border border-gray-300">
                 Learn More

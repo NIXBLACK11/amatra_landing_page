@@ -31,37 +31,37 @@ const Features: React.FC = () => {
     <section id="features" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Why Choose Amatra</h2>
+          <h2 className="text-3xl font-bold mb-4">Why Fashion Lovers Choose Amatra</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover the features that make Amatra the perfect companion for your fashion journey.
+            Discover the features that make Amatra the ultimate social platform for fashion enthusiasts.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <FeatureCard 
-            icon="👕" 
-            title="AI-Powered Styling" 
-            description="Our advanced AI analyzes your preferences to create personalized outfit recommendations from Amazon products."
+            icon="�" 
+            title="Share Outfit Looks" 
+            description="Post your favorite outfits with product links. Share your style and earn from referrals when others copy your look."
           />
           <FeatureCard 
-            icon="💰" 
-            title="Budget-Friendly" 
-            description="Set your budget and let Amatra find the perfect pieces that won't break the bank."
+            icon="🤖" 
+            title="AI Mix & Match" 
+            description="Add clothes you love and let our AI help you create endless outfit combinations you never thought possible."
           />
           <FeatureCard 
-            icon="🔄" 
-            title="Mix & Match" 
-            description="Create countless outfit combinations from your existing and new wardrobe items."
+            icon="�" 
+            title="Social Fashion Community" 
+            description="Connect with fashion lovers, get inspired by others' outfits, and build your following as a style influencer."
           />
           <FeatureCard 
-            icon="📱" 
-            title="Easy Shopping" 
-            description="Purchase recommended items directly through Amazon with just a few taps."
+            icon="�️" 
+            title="Shop Linked Items" 
+            description="Discover and buy items directly from outfit posts. Support your favorite creators while building your wardrobe."
           />
           <FeatureCard 
-            icon="📊" 
-            title="Wardrobe Analytics" 
-            description="Get insights about your wardrobe usage and recommendations for new additions."
+            icon="�" 
+            title="Style Analytics" 
+            description="Track which outfits get the most love, see what's trending, and understand your fashion influence."
           />
           <FeatureCard 
             icon="🌟" 
