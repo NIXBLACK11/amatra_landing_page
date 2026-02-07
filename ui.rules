@@ -11,3 +11,4 @@
 - if for hover the color is not available in the theme context, use the hoverbrand color hardcoded
 - for brand colors the hover should be brandHover
 - for text the hover should be textHover
+- also use the brand colors very minimally where super useful only there

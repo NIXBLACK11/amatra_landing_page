@@ -4,93 +4,166 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
 
-interface FeatureProps {
+interface FeatureCardProps {
   title: string;
   description: string;
-  icon: string;
+  image: string;
+  height: string;
+  delay: number;
 }
 
-const FeatureCard: React.FC<FeatureProps> = ({ title, description, icon }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, image, height, delay }) => {
   const { colors } = useTheme();
   
   return (
-    <motion.div 
-      className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
-      initial={{ opacity: 0, y: 30 }}
+    <motion.div
+      className="relative overflow-hidden shadow-lg backdrop-blur-sm p-6"
+      style={{ 
+        backgroundColor: colors.background === '#000000' ? '#0a0a0a' : '#ffffff',
+        height: height
+      }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+      transition={{ duration: 0.6, delay: delay }}
     >
-      <motion.div 
-        className="w-12 h-12 flex items-center justify-center rounded-full mb-4"
-        style={{ backgroundColor: `${colors.tint}20` }}
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        transition={{ duration: 0.3 }}
-      >
-        <span className="text-2xl" style={{ color: colors.tint }}>{icon}</span>
-      </motion.div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <div
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+      <div className="h-3/5 overflow-hidden relative z-10">
+        <img 
+          src={image} 
+          alt={title}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="p-6 h-2/5 flex flex-col justify-center relative z-10">
+        <h3 
+          className="text-2xl font-bold mb-3"
+          style={{ color: colors.text }}
+        >
+          {title}
+        </h3>
+        <p 
+          className="text-lg leading-relaxed"
+          style={{ color: colors.text }}
+        >
+          {description}
+        </p>
+      </div>
     </motion.div>
   );
 };
 
 const Features: React.FC = () => {
+  const { colors } = useTheme();
+
+  const features = [
+    {
+      title: "AI Style Assistant",
+      description: "Get personalized outfit recommendations powered by advanced AI that learns your unique fashion preferences.",
+      image: "https://picsum.photos/seed/aistyle/400/500",
+      height: "500px"
+    },
+    {
+      title: "Social Fashion Feed",
+      description: "Discover endless inspiration from fashion creators worldwide. Share your looks and build your style community.",
+      image: "https://picsum.photos/seed/socialfeed/400/350",
+      height: "350px"
+    },
+    {
+      title: "Smart Shopping Links",
+      description: "Shop directly from outfit posts. Every look is shoppable with instant access to curated fashion items.",
+      image: "https://picsum.photos/seed/shopping/400/450",
+      height: "450px"
+    },
+    {
+      title: "Virtual Try-On",
+      description: "See how outfits look on you before buying. Our AR technology brings online shopping to life.",
+      image: "https://picsum.photos/seed/tryon/400/380",
+      height: "380px"
+    },
+    {
+      title: "Style Analytics",
+      description: "Track your fashion influence with detailed analytics. See what works and grow your personal brand.",
+      image: "https://picsum.photos/seed/analytics/400/420",
+      height: "420px"
+    },
+    {
+      title: "Trend Forecasting",
+      description: "Stay ahead of the curve with AI-powered trend predictions tailored to your style preferences.",
+      image: "https://picsum.photos/seed/trends/400/400",
+      height: "400px"
+    },
+    {
+      title: "Community Challenges",
+      description: "Participate in weekly fashion challenges. Win prizes and gain recognition in the fashion community.",
+      image: "https://picsum.photos/seed/challenges/400/360",
+      height: "360px"
+    },
+    {
+      title: "Personal Stylist",
+      description: "Get 1-on-1 styling advice from professional fashion experts who understand your unique taste.",
+      image: "https://picsum.photos/seed/stylist/400/480",
+      height: "480px"
+    },
+    {
+      title: "Sustainable Fashion",
+      description: "Discover eco-friendly brands and make sustainable choices without compromising on style.",
+      image: "https://picsum.photos/seed/sustainable/400/440",
+      height: "440px"
+    }
+  ];
+
   return (
-    <section id="features" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
+    <section 
+      className="relative w-full min-h-screen py-20"
+      style={{ backgroundColor: colors.background }}
+    >
+      {/* Header Section */}
+      <div className="text-center mb-20 px-4">
+        <motion.h1 
+          className="text-5xl md:text-7xl font-black mb-6"
+          style={{ color: colors.text }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-bold mb-4">Why Fashion Lovers Choose Amatra</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover the features that make Amatra the ultimate social platform for fashion enthusiasts.
-          </p>
-        </motion.div>
-        
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial={{ opacity: 0, y: 30 }}
+          FEATURES THAT
+          <br />
+          DEFINE STYLE
+        </motion.h1>
+        <motion.p 
+          className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed"
+          style={{ color: colors.text }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <FeatureCard 
-            icon="👗" 
-            title="Share Outfit Looks" 
-            description="Post your favorite outfits with product links. Share your style and earn from referrals when others copy your look."
-          />
-          <FeatureCard 
-            icon="🤖" 
-            title="AI Mix & Match" 
-            description="Add clothes you love and let our AI help you create endless outfit combinations you never thought possible."
-          />
-          <FeatureCard 
-            icon="💕" 
-            title="Social Fashion Community" 
-            description="Connect with fashion lovers, get inspired by others' outfits, and build your following as a style influencer."
-          />
-          <FeatureCard 
-            icon="🛍️" 
-            title="Shop Linked Items" 
-            description="Discover and buy items directly from outfit posts. Support your favorite creators while building your wardrobe."
-          />
-          <FeatureCard 
-            icon="📈" 
-            title="Style Analytics" 
-            description="Track which outfits get the most love, see what's trending, and understand your fashion influence."
-          />
-          <FeatureCard 
-            icon="🌟" 
-            title="Seasonal Updates" 
-            description="Stay on trend with seasonal recommendations tailored to your style and preferences."
-          />
-        </motion.div>
+          Experience the future of fashion with cutting-edge technology designed to elevate your personal style journey.
+        </motion.p>
+      </div>
+
+      {/* Masonry Grid Layout */}
+      <div className="px-4 md:px-8">
+        <div className="columns-1 md:columns-3 gap-3 space-y-3">
+          {features.map((feature, index) => (
+            <div key={index} className="break-inside-avoid mb-3">
+              <FeatureCard
+                title={feature.title}
+                description={feature.description}
+                image={feature.image}
+                height={feature.height}
+                delay={index * 0.1}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
