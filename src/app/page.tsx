@@ -1,15 +1,21 @@
-import Features from "@/components/Features";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
-import Newsletter from "@/components/Newsletter";
+"use client"
+
+import Features from "@/components/Landing/Features";
+import Footer from "@/components/Landing/Footer";
+import Header from "@/components/Landing/Header";
+import Hero from "@/components/Landing/Hero";
+import HowItWorks from "@/components/Landing/HowItWorks";
+import Newsletter from "@/components/Landing/Newsletter";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
+  const { colors } = useTheme();
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-white text-black">
+      <div 
+        className="min-h-screen"
+        style={{ backgroundColor: colors.background }}
+      >
         <Header />
         <main>
           <Hero />
@@ -20,6 +26,5 @@ export default function Home() {
         </main>
         <Footer />
       </div>
-    </ThemeProvider>
   )
 }

@@ -1,0 +1,13 @@
+- always follow the format used in other files
+- never hardcode any color
+- as all are avaiable in the theme context, use it
+- use the brand color for any brand related element
+- use the hover brand color for any hover brand related element
+
+- use the background color for any background related element
+- use the text color for any text related element
+- use the light background color for any light background related element(these are the elements that you want lowkey like dont want them to take full focus of the user)
+- from now on dont use the tint color for any element
+- if for hover the color is not available in the theme context, use the hoverbrand color hardcoded
+- for brand colors the hover should be brandHover
+- for text the hover should be textHover

@@ -5,19 +5,23 @@ import React, { createContext, useState, useContext, ReactNode } from 'react';
 export const Colors = { 
   light: { 
     text: "#000000", 
-    background: "#ffffff", 
-    tint: "#ffb941", 
-    icon: "#000000", 
-    tabIconDefault: "#a3a3a3", 
-    tabIconSelected: "#000000", 
+    hoverText: "#3d3b3b",
+    background: "#ffffff",
+    lightBackground: "#c4c4c0",
+    tint: "#EEFF41",
+    hoverBrand: "D4C400",
+    brand: "#EEFF41",
+    icon: "#000000",
   }, 
   dark: { 
     text: "#ffffff", 
+    hoverText: "#c4c4c0",
     background: "#000000", 
-    tint: "#ffb941", 
-    icon: "#ffffff", 
-    tabIconDefault: "#a3a3a3", 
-    tabIconSelected: "#ffffff", 
+    lightBackground: "#3d3b3b",
+    tint: "#EEFF41",
+    hoverBrand: "D4C400", 
+    brand: "#EEFF41",
+    icon: "#ffffff",
   }
 };
 
