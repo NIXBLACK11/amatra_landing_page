@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
 const Header: React.FC = () => {
@@ -14,19 +15,35 @@ const Header: React.FC = () => {
         </div>
         
         <nav className="hidden md:flex space-x-8">
-          <a href="#features" className="text-gray-700 hover:text-blue-600 transition-colors">Features</a>
-          <a href="#how-it-works" className="text-gray-700 hover:text-blue-600 transition-colors">How It Works</a>
+          <motion.a 
+            href="#features" 
+            className="text-gray-700 hover:text-blue-600 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
+            Features
+          </motion.a>
+          <motion.a 
+            href="#how-it-works" 
+            className="text-gray-700 hover:text-blue-600 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
+            How It Works
+          </motion.a>
           {/* <a href="#testimonials" className="text-gray-700 hover:text-blue-600 transition-colors">Testimonials</a> */}
         </nav>
         
         <div>
-          <button 
+          <motion.button 
             className="px-4 py-2 rounded font-medium text-black"
             style={{ backgroundColor: colors.tint }}
             onClick={() => window.open('https://x.com/_AMATRA_', '_blank')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Join us
-          </button>
+          </motion.button>
         </div>
       </div>
     </header>
