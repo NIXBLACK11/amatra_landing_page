@@ -172,7 +172,7 @@ const Footer: React.FC = () => {
       </div>
       {/* Bottom Big Logo Section - Keeping as is */}
       <div className="py-2 w-full overflow-hidden" style={{ borderColor: colors.text, backgroundColor: colors.brand }}>
-        <h1 className="text-[4rem] text-black md:text-[20rem] font-bold text-center [text-shadow:_1px_0_0_currentColor,_-1px_0_0_currentColor,_0_1px_0_currentColor,_0_-1px_0_currentColor] break-words">
+        <h1 className="text-[4rem] text-black md:text-[20rem] font-bold text-center [text-shadow:_1px_0_0_currentColor,_-1px_0_0_currentColor,_0_1px_0_currentColor,_0_-1px_0_currentColor] break-words font-montserrat">
           AMATRA
         </h1>
       </div>

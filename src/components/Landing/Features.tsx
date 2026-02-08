@@ -17,7 +17,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, image, he
   
   return (
     <motion.div
-      className="relative overflow-hidden shadow-lg backdrop-blur-sm p-6"
+      className="relative overflow-hidden shadow-lg backdrop-blur-sm"
       style={{ 
         backgroundColor: colors.background === '#000000' ? '#0a0a0a' : '#ffffff',
         height: height
@@ -33,26 +33,26 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, image, he
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
-      <div className="h-3/5 overflow-hidden relative z-10">
-        <img 
-          src={image} 
-          alt={title}
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="p-6 h-2/5 flex flex-col justify-center relative z-10">
+      <div className="px-2 py-6 h-2/5 flex flex-col justify-center relative z-10">
         <h3 
-          className="text-2xl font-bold mb-3"
+          className="text-2xl font-black mb-3 font-montserrat"
           style={{ color: colors.text }}
         >
           {title}
         </h3>
         <p 
           className="text-lg leading-relaxed"
-          style={{ color: colors.text }}
+          style={{ color: colors.hoverText }}
         >
           {description}
         </p>
+      </div>
+      <div className="h-3/5 overflow-hidden relative z-10">
+        <img 
+          src={image} 
+          alt={title}
+          className="w-full h-full object-cover"
+        />
       </div>
     </motion.div>
   );
@@ -126,7 +126,7 @@ const Features: React.FC = () => {
       {/* Header Section */}
       <div className="text-center mb-20 px-4">
         <motion.h1 
-          className="text-5xl md:text-7xl font-black mb-6"
+          className="text-5xl md:text-7xl font-black mb-6 font-montserrat"
           style={{ color: colors.text }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

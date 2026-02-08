@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
         >
           <div className="px-4">
             <motion.h1 
-              className="text-7xl lg:text-[10rem] font-black mb-6 tracking-tight [text-shadow:_1px_0_0_currentColor,_-1px_0_0_currentColor,_0_1px_0_currentColor,_0_-1px_0_currentColor]"
+              className="text-7xl lg:text-[10rem] font-black mb-6 tracking-tight [text-shadow:_1px_0_0_currentColor,_-1px_0_0_currentColor,_0_1px_0_currentColor,_0_-1px_0_currentColor] font-montserrat"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
