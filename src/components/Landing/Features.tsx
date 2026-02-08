@@ -41,7 +41,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, image, he
           {title}
         </h3>
         <p 
-          className="text-lg leading-relaxed"
+          className="text-lg leading-relaxed font-dm-sans"
           style={{ color: colors.hoverText }}
         >
           {description}
@@ -138,7 +138,7 @@ const Features: React.FC = () => {
           DEFINE STYLE
         </motion.h1>
         <motion.p 
-          className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed font-dm-sans"
           style={{ color: colors.text }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
         <div className="w-full py-10 max-w-6xl flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
           <div className="flex flex-col items-start gap-4">
             <a href="/" className="cursor-pointer">
-              <h2 className="text-2xl font-bold" style={{ color: colors.brand }}>amatra</h2>
+              <h2 className="text-2xl font-bold font-dm-sans" style={{ color: colors.brand }}>amatra</h2>
             </a>
             <div className="flex gap-4 mt-2">
               <a href="https://x.com/_AMATRA_" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-2xl transition cursor-pointer" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>
@@ -48,10 +48,10 @@ const Footer: React.FC = () => {
 
           {/* Menu */}
           <div className="flex flex-col items-start gap-2">
-            <span className="text-lg font-semibold mb-2">Menu</span>
+            <span className="text-lg font-semibold mb-2 font-dm-sans">Menu</span>
             <motion.button
               onClick={() => handleNavClick('features')}
-              className="text-left transition cursor-pointer"
+              className="text-left transition cursor-pointer font-dm-sans"
               style={{ color: colors.text }}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
             </motion.button>
             <motion.button
               onClick={() => handleNavClick('reviews')}
-              className="text-left transition cursor-pointer"
+              className="text-left transition cursor-pointer font-dm-sans"
               style={{ color: colors.text }}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
             </motion.button>
             <motion.button
               onClick={() => handleNavClick('faq')}
-              className="text-left transition cursor-pointer"
+              className="text-left transition cursor-pointer font-dm-sans"
               style={{ color: colors.text }}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
@@ -86,10 +86,10 @@ const Footer: React.FC = () => {
 
           {/* Legal */}
           <div className="flex flex-col items-start gap-2">
-            <span className="text-lg font-semibold mb-2">Legal</span>
+            <span className="text-lg font-semibold mb-2 font-dm-sans">Legal</span>
             <motion.a
               href="/legal/privacy-policy"
-              className="transition cursor-pointer"
+              className="transition cursor-pointer font-dm-sans"
               style={{ color: colors.text }}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
             </motion.a>
             <motion.a
               href="/legal/terms-of-service"
-              className="transition cursor-pointer"
+              className="transition cursor-pointer font-dm-sans"
               style={{ color: colors.text }}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
               href="https://whitepaper.amatra.io/"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition cursor-pointer"
+              className="transition cursor-pointer font-dm-sans"
               style={{ color: colors.text }}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
@@ -126,12 +126,12 @@ const Footer: React.FC = () => {
 
           {/* Socials */}
           <div className="flex flex-col items-start gap-2">
-            <span className="text-lg font-semibold mb-2">Socials</span>
+            <span className="text-lg font-semibold mb-2 font-dm-sans">Socials</span>
             <motion.a
               href="https://discord.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition cursor-pointer"
+              className="transition cursor-pointer font-dm-sans"
               style={{ color: colors.text }}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
               href="https://x.com/_AMATRA_"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition cursor-pointer"
+              className="transition cursor-pointer font-dm-sans"
               style={{ color: colors.text }}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
@@ -157,7 +157,7 @@ const Footer: React.FC = () => {
               href="https://medium.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition cursor-pointer"
+              className="transition cursor-pointer font-dm-sans"
               style={{ color: colors.text }}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}

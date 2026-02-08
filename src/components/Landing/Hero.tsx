@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
               STYLES
             </motion.h1>
             <motion.p 
-              className="text-xl mb-8"
+              className="text-xl mb-8 font-dm-sans"
               style={{ color: colors.text }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

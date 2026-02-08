@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Montserrat } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat, DM_Sans } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/ui/LenisProvider";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -20,6 +20,12 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   title: "Amatra",
   description: "Create Your Perfect Wardrobe with AI",
@@ -33,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${dmSans.variable} font-dm-sans antialiased`}
       >
         <ThemeProvider>
         <LenisProvider>
