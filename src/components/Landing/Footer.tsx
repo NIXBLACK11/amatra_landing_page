@@ -14,16 +14,24 @@ const Footer: React.FC = () => {
   const handleNavClick = (sectionId: string) => {
     if (pathname === '/') {
       // If on home page, scroll to section
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      if (sectionId === 'updates') {
+        window.location.href = '/updates';
+      } else {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
       // If on other page, navigate to home with anchor
-      window.location.href = `/#${sectionId}`;
+      if (sectionId === 'updates') {
+        window.location.href = '/updates';
+      } else {
+        window.location.href = `/#${sectionId}`;
+      }
     }
   };
 
   return (
     <footer className="w-full pt-10 flex flex-col items-center" style={{ backgroundColor: colors.background, color: colors.text }}>
-      <div className="w-full max-w-6xl flex flex-col">
+      <div className="w-full max-w-6xl px-4 flex flex-col">
         {/* Logo & Icons */}
         <div className="w-full py-10 max-w-6xl flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
           <div className="flex flex-col items-start gap-4">
@@ -59,6 +67,17 @@ const Footer: React.FC = () => {
               onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
             >
               Features
+            </motion.button>
+            <motion.button
+              onClick={() => handleNavClick('updates')}
+              className="text-left transition cursor-pointer font-dm-sans"
+              style={{ color: colors.text }}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
+            >
+              Updates
             </motion.button>
             <motion.button
               onClick={() => handleNavClick('reviews')}

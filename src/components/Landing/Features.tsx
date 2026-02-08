@@ -10,9 +10,10 @@ interface FeatureCardProps {
   image: string;
   height: string;
   delay: number;
+  span?: boolean;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, image, height, delay }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, image, height, delay, span }) => {
   const { colors } = useTheme();
   
   return (
@@ -66,55 +67,81 @@ const Features: React.FC = () => {
       title: "AI Style Assistant",
       description: "Get personalized outfit recommendations powered by advanced AI that learns your unique fashion preferences.",
       image: "https://picsum.photos/seed/aistyle/400/500",
-      height: "500px"
+      height: "500px",
+      span: false
     },
     {
       title: "Social Fashion Feed",
       description: "Discover endless inspiration from fashion creators worldwide. Share your looks and build your style community.",
-      image: "https://picsum.photos/seed/socialfeed/400/350",
-      height: "350px"
-    },
+      image: "https://picsum.photos/seed/socialfeed/800/500",
+      height: "500px",
+      span: true
+    }
+  ];
+
+  const remainingFeatures = [
     {
       title: "Smart Shopping Links",
       description: "Shop directly from outfit posts. Every look is shoppable with instant access to curated fashion items.",
-      image: "https://picsum.photos/seed/shopping/400/450",
-      height: "450px"
+      image: "https://picsum.photos/seed/shopping/400/700",
+      height: "700px",
+      span: false
     },
     {
       title: "Virtual Try-On",
       description: "See how outfits look on you before buying. Our AR technology brings online shopping to life.",
       image: "https://picsum.photos/seed/tryon/400/380",
-      height: "380px"
+      height: "420px",
+      span: false
     },
     {
       title: "Style Analytics",
       description: "Track your fashion influence with detailed analytics. See what works and grow your personal brand.",
       image: "https://picsum.photos/seed/analytics/400/420",
-      height: "420px"
+      height: "420px",
+      span: false
     },
     {
       title: "Trend Forecasting",
       description: "Stay ahead of the curve with AI-powered trend predictions tailored to your style preferences.",
       image: "https://picsum.photos/seed/trends/400/400",
-      height: "400px"
+      height: "400px",
+      span: false
     },
     {
       title: "Community Challenges",
       description: "Participate in weekly fashion challenges. Win prizes and gain recognition in the fashion community.",
       image: "https://picsum.photos/seed/challenges/400/360",
-      height: "360px"
+      height: "650px",
+      span: false
     },
     {
       title: "Personal Stylist",
       description: "Get 1-on-1 styling advice from professional fashion experts who understand your unique taste.",
       image: "https://picsum.photos/seed/stylist/400/480",
-      height: "480px"
+      height: "480px",
+      span: false
     },
     {
       title: "Sustainable Fashion",
       description: "Discover eco-friendly brands and make sustainable choices without compromising on style.",
       image: "https://picsum.photos/seed/sustainable/400/440",
-      height: "440px"
+      height: "440px",
+      span: false
+    },
+    {
+      title: "Sustainable Fashion2",
+      description: "Discover eco-friendly brands and make sustainable choices without compromising on style.",
+      image: "https://picsum.photos/seed/sustainable/400/440",
+      height: "440px",
+      span: false
+    },
+    {
+      title: "Sustainable Fashion3",
+      description: "Discover eco-friendly brands and make sustainable choices without compromising on style.",
+      image: "https://picsum.photos/seed/sustainable/400/440",
+      height: "600px",
+      span: false
     }
   ];
 
@@ -149,17 +176,36 @@ const Features: React.FC = () => {
         </motion.p>
       </div>
 
-      {/* Masonry Grid Layout */}
+      {/* Featured Section - First Two Features */}
       <div className="px-4 md:px-8">
-        <div className="columns-1 md:columns-3 gap-3 space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {features.map((feature, index) => (
-            <div key={index} className="break-inside-avoid mb-3">
+            <div key={index} className={`${feature.span ? 'md:col-span-2' : ''} mb-3`}>
               <FeatureCard
                 title={feature.title}
                 description={feature.description}
                 image={feature.image}
                 height={feature.height}
                 delay={index * 0.1}
+                span={feature.span}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Masonry Grid Layout - Remaining Features */}
+      <div className="px-4 md:px-8">
+        <div className="columns-1 md:columns-3 gap-3 space-y-3">
+          {remainingFeatures.map((feature, index) => (
+            <div key={index} className="break-inside-avoid mb-3">
+              <FeatureCard
+                title={feature.title}
+                description={feature.description}
+                image={feature.image}
+                height={feature.height}
+                delay={(index + 2) * 0.1}
+                span={feature.span}
               />
             </div>
           ))}
