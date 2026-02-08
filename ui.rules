@@ -14,3 +14,4 @@
 - also use the brand colors very minimally where super useful only there
 - for headings use the font montserrat with the same boldness and size concepts as the hero section big text
 - for all other texts use the font dm sans
+- for icons use only react-icons/pi

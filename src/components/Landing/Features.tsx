@@ -3,61 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
-
-interface FeatureCardProps {
-  title: string;
-  description: string;
-  image: string;
-  height: string;
-  delay: number;
-  span?: boolean;
-}
-
-const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, image, height, delay, span }) => {
-  const { colors } = useTheme();
-  
-  return (
-    <motion.div
-      className="relative overflow-hidden shadow-lg backdrop-blur-sm"
-      style={{ 
-        backgroundColor: colors.background === '#000000' ? '#0a0a0a' : '#ffffff',
-        height: height
-      }}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: delay }}
-    >
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
-      />
-      <div className="px-2 py-6 h-2/5 flex flex-col justify-center relative z-10">
-        <h3 
-          className="text-2xl font-black mb-3 font-montserrat"
-          style={{ color: colors.text }}
-        >
-          {title}
-        </h3>
-        <p 
-          className="text-lg leading-relaxed font-dm-sans"
-          style={{ color: colors.hoverText }}
-        >
-          {description}
-        </p>
-      </div>
-      <div className="h-3/5 overflow-hidden relative z-10">
-        <img 
-          src={image} 
-          alt={title}
-          className="w-full h-full object-cover"
-        />
-      </div>
-    </motion.div>
-  );
-};
+import Updates from '@/components/features/Updates';
+import { FeatureCard } from '../features/FeatureCard';
 
 const Features: React.FC = () => {
   const { colors } = useTheme();
@@ -68,14 +15,20 @@ const Features: React.FC = () => {
       description: "Get personalized outfit recommendations powered by advanced AI that learns your unique fashion preferences.",
       image: "https://picsum.photos/seed/aistyle/400/500",
       height: "500px",
-      span: false
+      span: false,
+      component: undefined,
+      backgroundColor: undefined,
+      link: "#ai-style-assistant"
     },
     {
       title: "Social Fashion Feed",
       description: "Discover endless inspiration from fashion creators worldwide. Share your looks and build your style community.",
       image: "https://picsum.photos/seed/socialfeed/800/500",
       height: "500px",
-      span: true
+      span: true,
+      component: undefined,
+      backgroundColor: undefined,
+      link: "#social-fashion-feed"
     }
   ];
 
@@ -85,63 +38,88 @@ const Features: React.FC = () => {
       description: "Shop directly from outfit posts. Every look is shoppable with instant access to curated fashion items.",
       image: "https://picsum.photos/seed/shopping/400/700",
       height: "700px",
-      span: false
+      span: false,
+      component: undefined,
+      backgroundColor: undefined,
+      link: undefined
     },
     {
-      title: "Virtual Try-On",
-      description: "See how outfits look on you before buying. Our AR technology brings online shopping to life.",
-      image: "https://picsum.photos/seed/tryon/400/380",
+      title: "Updates",
+      description: "Stay tuned for the latest features and releases",
+      component: <Updates />,
       height: "420px",
-      span: false
+      span: false,
+      image: undefined,
+      backgroundColor: undefined,
+      link: "/updates"
     },
     {
       title: "Style Analytics",
       description: "Track your fashion influence with detailed analytics. See what works and grow your personal brand.",
       image: "https://picsum.photos/seed/analytics/400/420",
       height: "420px",
-      span: false
+      span: false,
+      backgroundColor: colors.brand,
+      component: undefined,
+      link: "#style-analytics"
     },
     {
       title: "Trend Forecasting",
       description: "Stay ahead of the curve with AI-powered trend predictions tailored to your style preferences.",
       image: "https://picsum.photos/seed/trends/400/400",
       height: "400px",
-      span: false
+      span: false,
+      component: undefined,
+      backgroundColor: undefined,
+      link: "#trend-forecasting"
     },
     {
       title: "Community Challenges",
       description: "Participate in weekly fashion challenges. Win prizes and gain recognition in the fashion community.",
       image: "https://picsum.photos/seed/challenges/400/360",
       height: "650px",
-      span: false
+      span: false,
+      component: undefined,
+      backgroundColor: undefined,
+      link: "#community-challenges"
     },
     {
       title: "Personal Stylist",
       description: "Get 1-on-1 styling advice from professional fashion experts who understand your unique taste.",
       image: "https://picsum.photos/seed/stylist/400/480",
       height: "480px",
-      span: false
+      span: false,
+      component: undefined,
+      backgroundColor: undefined,
+      link: "#personal-stylist"
     },
     {
       title: "Sustainable Fashion",
       description: "Discover eco-friendly brands and make sustainable choices without compromising on style.",
       image: "https://picsum.photos/seed/sustainable/400/440",
       height: "440px",
-      span: false
+      span: false,
+      component: undefined,
+      backgroundColor: undefined,
+      link: "#sustainable-fashion"
     },
     {
       title: "Sustainable Fashion2",
       description: "Discover eco-friendly brands and make sustainable choices without compromising on style.",
       image: "https://picsum.photos/seed/sustainable/400/440",
       height: "440px",
-      span: false
+      span: false,
+      component: undefined,
+      backgroundColor: undefined
     },
     {
       title: "Sustainable Fashion3",
       description: "Discover eco-friendly brands and make sustainable choices without compromising on style.",
       image: "https://picsum.photos/seed/sustainable/400/440",
       height: "600px",
-      span: false
+      span: false,
+      component: undefined,
+      backgroundColor: undefined
     }
   ];
 
@@ -188,6 +166,9 @@ const Features: React.FC = () => {
                 height={feature.height}
                 delay={index * 0.1}
                 span={feature.span}
+                component={feature.component}
+                backgroundColor={feature.backgroundColor}
+                link={feature.link}
               />
             </div>
           ))}
@@ -206,6 +187,9 @@ const Features: React.FC = () => {
                 height={feature.height}
                 delay={(index + 2) * 0.1}
                 span={feature.span}
+                component={feature.component}
+                backgroundColor={feature.backgroundColor}
+                link={feature.link}
               />
             </div>
           ))}

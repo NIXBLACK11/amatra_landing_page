@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
 import { PiSun, PiMoon } from 'react-icons/pi';
-import PostCard from '@/components/App/PostCard';
+import PostCard from '@/components/app/PostCard';
 
 const Hero: React.FC = () => {
   const { colors } = useTheme();
