@@ -6,7 +6,6 @@ import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Newsletter from "@/components/landing/Newsletter";
-import { ThemeProvider } from "@/context/ThemeContext";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
