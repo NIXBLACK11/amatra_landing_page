@@ -4,8 +4,6 @@ import Features from "@/components/landing/Features";
 import Footer from "@/components/landing/Footer";
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
-import HowItWorks from "@/components/landing/HowItWorks";
-import Newsletter from "@/components/landing/Newsletter";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
@@ -19,9 +17,6 @@ export default function Home() {
         <main>
           <Hero />
           <Features />
-          <HowItWorks />
-          {/* <Testimonials /> */}
-          <Newsletter />
         </main>
         <Footer />
       </div>

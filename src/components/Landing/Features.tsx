@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
 import Updates from '@/components/features/Updates';
-import { FeatureCard } from '../features/FeatureCard';
+import { FeatureCard } from '@/components/features/FeatureCard';
 
 const Features: React.FC = () => {
   const { colors } = useTheme();
@@ -59,7 +59,7 @@ const Features: React.FC = () => {
       image: "https://picsum.photos/seed/analytics/400/420",
       height: "420px",
       span: false,
-      backgroundColor: colors.brand,
+      backgroundColor: undefined,
       component: undefined,
       link: "#style-analytics"
     },
@@ -70,7 +70,7 @@ const Features: React.FC = () => {
       height: "400px",
       span: false,
       component: undefined,
-      backgroundColor: undefined,
+      backgroundColor: colors.brand,
       link: "#trend-forecasting"
     },
     {
