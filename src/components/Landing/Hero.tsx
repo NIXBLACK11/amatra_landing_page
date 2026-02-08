@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
   const { toggleTheme } = useTheme();
 
   return (
-    <section className="relative flex flex-col-reverse md:flex-row w-full min-h-screen">
+    <section className="relative flex flex-col-reverse lg:flex-row w-full min-h-screen">
       {/* Fixed Theme Switch Button */}
       <motion.button
         className="fixed bottom-6 left-6 z-50 p-3 rounded-full shadow-lg"
@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
         )}
       </motion.button>
       {/* LEFT – sticky */}
-      <div className="w-full md:w-3/5 order-2 md:order-1">
+      <div className="w-full lg:w-3/5 order-2 lg:order-1">
         <motion.div 
           className="sticky top-0 h-screen flex items-center justify-center"
           style={{ backgroundColor: colors.background }}
@@ -103,13 +103,13 @@ const Hero: React.FC = () => {
         >
           <div className="px-4">
             <motion.h1 
-              className="text-7xl md:text-8xl font-black mb-6 tracking-tight"
+              className="text-7xl lg:text-[10rem] font-black mb-6 tracking-tight [text-shadow:_1px_0_0_currentColor,_-1px_0_0_currentColor,_0_1px_0_currentColor,_0_-1px_0_currentColor]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               style={{ color: colors.text }}
             >
-              IMAGINE YOUR
+              IMAGINE YOU'R
               <br />
               STYLES
             </motion.h1>
@@ -122,37 +122,45 @@ const Hero: React.FC = () => {
             >
               Amatra is a social app where you share outfits with links, mix & match with AI, and inspire others to copy your style.
             </motion.p>
+            
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4" 
+              className="flex gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <motion.button 
-                className="px-8 py-4 rounded-lg font-medium text-black text-lg"
-                style={{ backgroundColor: colors.brand }}
-                onClick={() => window.open('https://x.com/_AMATRA_', '_blank')}
+              <motion.button
+                className="w-40 h-16"
+                onClick={() => window.open('https://apps.apple.com', '_blank')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Join Community
+                <img 
+                  src="/download/appStore.png" 
+                  alt="Download on App Store"
+                  className="w-full h-full object-contain"
+                />
               </motion.button>
-            </motion.div>
-            <motion.div 
-              className="mt-8"
-              style={{ color: colors.text }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <p>🚀 Launching Soon for Android and iOS</p>
+              
+              <motion.button
+                className="w-40 h-16"
+                onClick={() => window.open('https://play.google.com', '_blank')}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <img 
+                  src="/download/googlePlay.png" 
+                  alt="Get it on Google Play"
+                  className="w-full h-full object-contain"
+                />
+              </motion.button>
             </motion.div>
           </div>
         </motion.div>
       </div>
 
       {/* RIGHT – scrollable content */}
-      <div className="w-full md:w-2/5 px-4 pt-20 space-y-6 scrollbar-hide order-1 md:order-2">
+      <div className="w-full lg:w-2/5 px-4 pt-20 space-y-6 scrollbar-hide order-1 lg:order-2">
         {posts.map((post, index) => (
           <motion.div
             key={post.id}

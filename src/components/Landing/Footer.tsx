@@ -1,78 +1,180 @@
-"use client"
+"use client";
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
-import { PiXLogo } from 'react-icons/pi';
+import { PiInstagramLogo, PiXLogo, PiEnvelope, PiDiscordLogo, PiLinkedinLogo, PiTelegramLogo } from 'react-icons/pi';
+import { usePathname } from 'next/navigation';
 
 const Footer: React.FC = () => {
   const { colors } = useTheme();
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
-  
+
+  const handleNavClick = (sectionId: string) => {
+    if (pathname === '/') {
+      // If on home page, scroll to section
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // If on other page, navigate to home with anchor
+      window.location.href = `/#${sectionId}`;
+    }
+  };
+
   return (
-    <footer className="border-t" style={{ backgroundColor: colors.background, borderColor: colors.text }}>
-      <div className="py-8 text-center" style={{ backgroundColor: colors.lightBackground }}>
-        <h1 className="text-9xl md:text-9xl font-bold" style={{ color: colors.brand }}>AMATRA</h1>
+    <footer className="w-full pt-10 flex flex-col items-center" style={{ backgroundColor: colors.background, color: colors.text }}>
+      <div className="w-full max-w-6xl flex flex-col">
+        {/* Logo & Icons */}
+        <div className="w-full py-10 max-w-6xl flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
+          <div className="flex flex-col items-start gap-4">
+            <a href="/" className="cursor-pointer">
+              <h2 className="text-2xl font-bold" style={{ color: colors.brand }}>amatra</h2>
+            </a>
+            <div className="flex gap-4 mt-2">
+              <a href="https://x.com/_AMATRA_" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-2xl transition cursor-pointer" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>
+                <PiXLogo />
+              </a>
+              <a href="https://t.me" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="text-2xl transition cursor-pointer" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>
+                <PiTelegramLogo />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-2xl transition cursor-pointer" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>
+                <PiLinkedinLogo />
+              </a>
+              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-2xl transition cursor-pointer" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>
+                <PiDiscordLogo />
+              </a>
+            </div>
+          </div>
+
+          {/* Menu */}
+          <div className="flex flex-col items-start gap-2">
+            <span className="text-lg font-semibold mb-2">Menu</span>
+            <motion.button
+              onClick={() => handleNavClick('features')}
+              className="text-left transition cursor-pointer"
+              style={{ color: colors.text }}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
+            >
+              Features
+            </motion.button>
+            <motion.button
+              onClick={() => handleNavClick('reviews')}
+              className="text-left transition cursor-pointer"
+              style={{ color: colors.text }}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
+            >
+              Reviews
+            </motion.button>
+            <motion.button
+              onClick={() => handleNavClick('faq')}
+              className="text-left transition cursor-pointer"
+              style={{ color: colors.text }}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
+            >
+              FAQ
+            </motion.button>
+          </div>
+
+          {/* Legal */}
+          <div className="flex flex-col items-start gap-2">
+            <span className="text-lg font-semibold mb-2">Legal</span>
+            <motion.a
+              href="/legal/privacy-policy"
+              className="transition cursor-pointer"
+              style={{ color: colors.text }}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
+            >
+              Privacy Policy
+            </motion.a>
+            <motion.a
+              href="/legal/terms-of-service"
+              className="transition cursor-pointer"
+              style={{ color: colors.text }}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
+            >
+              Terms of Service
+            </motion.a>
+            <motion.a
+              href="https://whitepaper.amatra.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition cursor-pointer"
+              style={{ color: colors.text }}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
+            >
+              Whitepaper
+            </motion.a>
+          </div>
+
+          {/* Socials */}
+          <div className="flex flex-col items-start gap-2">
+            <span className="text-lg font-semibold mb-2">Socials</span>
+            <motion.a
+              href="https://discord.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition cursor-pointer"
+              style={{ color: colors.text }}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
+            >
+              Discord
+            </motion.a>
+            <motion.a
+              href="https://x.com/_AMATRA_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition cursor-pointer"
+              style={{ color: colors.text }}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
+            >
+              Twitter
+            </motion.a>
+            <motion.a
+              href="https://medium.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition cursor-pointer"
+              style={{ color: colors.text }}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
+            >
+              Medium
+            </motion.a>
+          </div>
+        </div>
+
       </div>
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center py-12">
-          <div className="mb-6 md:mb-0">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold" style={{ color: colors.brand }}>amatra</span>
-            </div>
-            <p className="mt-2" style={{ color: colors.text }}>Your social fashion companion</p>
-          </div>
-          
-          <div className="flex flex-wrap gap-8 justify-center">
-            <div>
-              <h4 className="font-semibold mb-3" style={{ color: colors.text }}>Company</h4>
-              <ul className="space-y-2" style={{ color: colors.text }}>
-                <motion.li 
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <a href="#" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>About Us</a>
-                </motion.li>
-                {/* <li><a href="#" className="hover:text-gray-900">Careers</a></li> */}
-                <motion.li 
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <a href="#" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>Contact</a>
-                </motion.li>
-              </ul>
-            </div>
-            {/* <div>
-              <h4 className="font-semibold mb-3">Legal</h4>
-              <ul className="text-gray-600 space-y-2">
-                <li><a href="#" className="hover:text-gray-900">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-gray-900">Terms of Service</a></li>
-              </ul>
-            </div> */}
-            <div>
-              <h4 className="font-semibold mb-3" style={{ color: colors.text }}>Follow Us</h4>
-              <div className="flex space-x-4">
-                <motion.a 
-                  href="https://x.com/_AMATRA_" 
-                  style={{ color: colors.text }}
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                  onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-                  onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-                >
-                  <span className="sr-only">Twitter</span>
-                  <PiXLogo className="h-6 w-6" />
-                </motion.a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div className="mt-12 pt-8 border-t" style={{ borderColor: colors.text }}>
-          <p className="text-center" style={{ color: colors.text }}>
-            © {currentYear} Amatra. All rights reserved.
-          </p>
-        </div>
+      {/* Bottom Big Logo Section - Keeping as is */}
+      <div className="py-2 w-full overflow-hidden" style={{ borderColor: colors.text, backgroundColor: colors.brand }}>
+        <h1 className="text-[4rem] text-black md:text-[20rem] font-bold text-center [text-shadow:_1px_0_0_currentColor,_-1px_0_0_currentColor,_0_1px_0_currentColor,_0_-1px_0_currentColor] break-words">
+          AMATRA
+        </h1>
       </div>
     </footer>
   );
