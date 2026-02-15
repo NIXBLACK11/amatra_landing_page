@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
   return (
     <section className="relative flex flex-col-reverse lg:flex-row w-full min-h-screen">
       {/* Fixed Theme Switch Button */}
-      <motion.button
+      {/* <motion.button
         className="fixed bottom-6 left-6 z-50 p-3 rounded-full shadow-lg"
         style={{ backgroundColor: colors.brand }}
         onClick={toggleTheme}
@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
             style={{ color: colors.text }}
           />
         )}
-      </motion.button>
+      </motion.button> */}
       {/* LEFT – sticky */}
       <div className="w-full lg:w-3/5 order-2 lg:order-1">
         <motion.div 
