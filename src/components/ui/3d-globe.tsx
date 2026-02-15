@@ -60,6 +60,8 @@ export interface Globe3DConfig {
   pointLightIntensity?: number;
   /** Background color (null for transparent) */
   backgroundColor?: string | null;
+  /** Color of the marker ring on hover */
+  markerHoverColor?: string;
 }
 
 interface Globe3DProps {
@@ -116,6 +118,7 @@ interface MarkerProps {
   defaultSize: number;
   onClick?: (marker: GlobeMarker) => void;
   onHover?: (marker: GlobeMarker | null) => void;
+  hoverColor?: string;
 }
 
 function Marker({
@@ -124,6 +127,7 @@ function Marker({
   defaultSize,
   onClick,
   onHover,
+  hoverColor = "#ffffff",
 }: MarkerProps) {
   const [hovered, setHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -196,7 +200,7 @@ function Marker({
       <mesh position={lineCenter} quaternion={lineQuaternion}>
         <cylinderGeometry args={[0.003, 0.003, lineHeight, 8]} />
         <meshBasicMaterial
-          color={hovered ? "#ffffff" : "#94a3b8"}
+          color={hovered ? hoverColor : "#94a3b8"}
           transparent
           opacity={hovered ? 0.9 : 0.6}
         />
@@ -205,30 +209,31 @@ function Marker({
       {/* Pin point at the surface */}
       <mesh position={surfacePosition} quaternion={lineQuaternion}>
         <coneGeometry args={[0.015, 0.04, 8]} />
-        <meshBasicMaterial color={hovered ? "#f97316" : "#ef4444"} />
+        <meshBasicMaterial color={hovered ? hoverColor : "#ef4444"} />
       </mesh>
 
       {/* Circular image at the top */}
       <group ref={imageGroupRef} position={topPosition}>
         <Html
-          transform
           center
-          sprite
           distanceFactor={10}
+          zIndexRange={[0, 0]}
           style={{
             pointerEvents: isVisible ? "auto" : "none",
             opacity: isVisible ? 1 : 0,
             transition: "opacity 0.15s ease-out",
+            whiteSpace: "nowrap",
           }}
         >
           <div
             className={cn(
               "cursor-pointer overflow-hidden rounded-full bg-neutral-900 shadow-lg transition-transform duration-200",
-              hovered && "scale-125 shadow-xl ring-1 ring-white/50",
+              hovered && "scale-125 shadow-xl",
             )}
             style={{
-              width: "8px",
-              height: "8px",
+              width: marker.size ? `${marker.size}px` : "1rem",
+              height: marker.size ? `${marker.size}px` : "1rem",
+              boxShadow: hovered ? `0 0 0 2px ${hoverColor}` : "none",
             }}
             onMouseEnter={handlePointerEnter}
             onMouseLeave={handlePointerLeave}
@@ -326,6 +331,7 @@ function RotatingGlobe({
           defaultSize={config.markerSize}
           onClick={onMarkerClick}
           onHover={onMarkerHover}
+          hoverColor={config.markerHoverColor}
         />
       ))}
     </group>
@@ -501,6 +507,7 @@ const defaultConfig: Required<Globe3DConfig> = {
   ambientIntensity: 0.6,
   pointLightIntensity: 1.5,
   backgroundColor: null,
+  markerHoverColor: "#ffffff",
 };
 
 export function Globe3D({

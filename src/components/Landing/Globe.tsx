@@ -1,5 +1,6 @@
 "use client";
-import { Globe3D, GlobeMarker } from "@/components/ui/3d-globe";
+import { GlobeMarker } from "@/components/ui/3d-globe";
+import { Globe } from "../ui/Globe";
 
 const sampleMarkers: GlobeMarker[] = [
   {
@@ -84,22 +85,6 @@ const sampleMarkers: GlobeMarker[] = [
 
 export function Globe3DDemo() {
   return (
-    <Globe3D
-      markers={sampleMarkers}
-      config={{
-        atmosphereColor: "#4da6ff",
-        atmosphereIntensity: 20,
-        bumpScale: 5,
-        autoRotateSpeed: 0.3,
-      }}
-      onMarkerClick={(marker) => {
-        console.log("Clicked marker:", marker.label);
-      }}
-      onMarkerHover={(marker) => {
-        if (marker) {
-          console.log("Hovering:", marker.label);
-        }
-      }}
-    />
+    <Globe markers={sampleMarkers} />
   );
 }

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
-import { PiHeart, PiHeartFill, PiChatCircle, PiBookmark, PiBookmarkFill } from 'react-icons/pi';
+import { PiHeart, PiHeartFill, PiChatCircle, PiBookmark, PiBookmarkFill, PiShare, PiCopySimple } from 'react-icons/pi';
 
 interface PostCardProps {
   username: string;
@@ -16,6 +16,7 @@ interface PostCardProps {
   onLike?: (liked: boolean, likeCount: number) => void;
   onComment?: () => void;
   onBookmark?: (bookmarked: boolean) => void;
+  onCopy?: () => void;
 }
 
 const PostCard: React.FC<PostCardProps> = ({
@@ -28,7 +29,8 @@ const PostCard: React.FC<PostCardProps> = ({
   initialComments,
   onLike,
   onComment,
-  onBookmark
+  onBookmark,
+  onCopy
 }) => {
   const { colors, theme } = useTheme();
   const [isLiked, setIsLiked] = useState(false);
@@ -60,6 +62,10 @@ const PostCard: React.FC<PostCardProps> = ({
     if (onBookmark) {
       onBookmark(newBookmarkedState);
     }
+  };
+
+  const handleCopy = () => {
+    if (onCopy) onCopy();
   };
 
   return (
@@ -140,7 +146,7 @@ const PostCard: React.FC<PostCardProps> = ({
 
         {/* Action Buttons */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4">
             {/* Like Button */}
             <motion.button
               onClick={handleLike}
@@ -187,23 +193,31 @@ const PostCard: React.FC<PostCardProps> = ({
                 {initialComments.toLocaleString()}
               </span>
             </motion.button>
+
+            {/* Share Button (moved next to comment) */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              <PiShare 
+                className="w-6 h-6" 
+                style={{ color: colors.text }}
+              />
+            </motion.button>
           </div>
 
-          {/* Share Button */}
+          {/* Copy Button (new right side action) */}
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            onClick={handleCopy}
+            className="flex items-center gap-2 px-4 py-2 rounded-full font-bold text-xs"
+            style={{ backgroundColor: colors.brand, color: '#000' }}
+            whileHover={{ scale: 1.05, backgroundColor: colors.hoverBrand }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            <svg 
-              className="w-6 h-6" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-              style={{ color: colors.text }}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m9.032 4.026a9.001 9.001 0 01-7.432 0m9.032-4.026A9.001 9.001 0 0112 3c-4.474 0-8.268 3.12-9.032 7.326m0 0A9.001 9.001 0 0012 21c4.474 0 8.268-3.12 9.032-7.326" />
-            </svg>
+            <PiCopySimple className="w-4 h-4" />
+            <span>COPY FIT</span>
           </motion.button>
         </div>
       </div>
