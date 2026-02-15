@@ -1,10 +1,10 @@
 "use client"
 
-import Features from "@/components/landing/Features";
-import Footer from "@/components/landing/Footer";
-import GlobeFeatures from "@/components/landing/GlobeFeatures";
-import Header from "@/components/landing/Header";
-import Hero from "@/components/landing/Hero";
+import Features from "@/components/landing/features";
+import Footer from "@/components/landing/footer";
+import GlobeFeatures from "@/components/landing/globeFeatures";
+import Header from "@/components/landing/header";
+import Hero from "@/components/landing/hero";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
