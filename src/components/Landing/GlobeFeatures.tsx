@@ -27,6 +27,16 @@ const globeData = [
     flag: "🇮🇳",
     text: "Serenity in the Himalayas. A vibrant blend of colors inspired by the valley of flowers.",
     title: "Himalayan Bloom"
+  },
+  {
+    id: 3,
+    lat: 56.4907,
+    lng: -4.2026,
+    label: "Scotland",
+    image: "/user/places/scotland/model.png",
+    flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    text: "Warm tartan patterns meet misty highlands. Discover the bold spirit of Scotland.",
+    title: "Celtic Classic"
   }
 ];
 
