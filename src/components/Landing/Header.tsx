@@ -18,9 +18,9 @@ const Header: React.FC = () => {
   }, []);
   
   const navItems = [
-    { name: 'posts', href: '#posts' },
-    { name: 'imagine', href: '#imagine' },
-    { name: 'pricing', href: '#pricing' }
+    { name: 'posts', href: '/#posts' },
+    { name: 'imagine', href: '/#imagine' },
+    { name: 'pricing', href: '/#pricing' }
   ];
   
   return (
