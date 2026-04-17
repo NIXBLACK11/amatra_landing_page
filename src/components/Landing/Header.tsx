@@ -41,7 +41,7 @@ const Header: React.FC = () => {
             className="h-12 w-auto"
           />
           <span 
-            className="ml-3 text-2xl font-bold hidden lg:block"
+            className="ml-3 text-2xl font-bold hidden lg:block font-cormorant-garamond"
             style={{ color: colors.brand }}
           >
             AMATRA
@@ -53,7 +53,7 @@ const Header: React.FC = () => {
             <a 
               key={item.name}
               href={item.href} 
-              className="transition-colors"
+              className="transition-colors font-geist-mono"
               style={{ color: colors.text }}
               onMouseEnter={(e) => e.currentTarget.style.color = theme === 'light' ? '#3d3b3b' : '#c4c4c0'}
               onMouseLeave={(e) => e.currentTarget.style.color = colors.text}

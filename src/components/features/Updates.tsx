@@ -63,7 +63,7 @@ const Updates: React.FC = () => {
 
       {/* Subtitle */}
       <motion.p
-        className="text-center text-base font-dm-sans"
+        className="text-center text-base font-geist-mono"
         style={{ color: colors.text }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

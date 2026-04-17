@@ -68,7 +68,7 @@ const Updates: React.FC = () => {
           RELEASES
         </motion.h1>
         <motion.p 
-          className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed font-dm-sans"
+          className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed font-geist-mono"
           style={{ color: colors.text }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -121,7 +121,7 @@ const Updates: React.FC = () => {
                       {update.title}
                     </h3>
                     <motion.span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold font-dm-sans ${
+                      className={`px-3 py-1 rounded-full text-xs font-semibold font-geist-mono ${
                         update.status === 'launched' 
                           ? 'bg-green-500 text-white' 
                           : 'bg-yellow-500 text-white'
@@ -138,7 +138,7 @@ const Updates: React.FC = () => {
                   {/* Date and Version */}
                   <div className="flex items-center justify-between mb-3">
                     <motion.div
-                      className="text-sm font-semibold font-dm-sans"
+                      className="text-sm font-semibold font-geist-mono"
                       style={{ color: colors.text }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -149,7 +149,7 @@ const Updates: React.FC = () => {
                     </motion.div>
                     {update.version && (
                       <motion.span
-                        className="text-xs font-semibold font-dm-sans"
+                        className="text-xs font-semibold font-geist-mono"
                         style={{ color: colors.text }}
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -162,7 +162,7 @@ const Updates: React.FC = () => {
                   </div>
                   
                   <p 
-                    className="text-base leading-relaxed font-dm-sans"
+                    className="text-base leading-relaxed font-geist-mono"
                     style={{ color: colors.text }}
                   >
                     {update.description}

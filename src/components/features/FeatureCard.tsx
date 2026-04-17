@@ -74,7 +74,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, im
                 {title}
               </h3>
               <p 
-                className="text-base leading-relaxed font-dm-sans"
+                className="text-base leading-relaxed font-geist-mono"
                 style={{ color: textColor }}
               >
                 {description}

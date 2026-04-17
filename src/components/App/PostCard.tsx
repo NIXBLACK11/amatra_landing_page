@@ -89,7 +89,7 @@ const PostCard: React.FC<PostCardProps> = ({
           />
           <div>
             <motion.h3 
-              className="font-semibold"
+              className="font-semibold font-geist-mono"
               style={{ color: colors.text }}
               whileHover={{ color: theme === 'light' ? '#3d3b3b' : '#c4c4c0' }}
               transition={{ duration: 0.2 }}
@@ -97,7 +97,7 @@ const PostCard: React.FC<PostCardProps> = ({
               {username}
             </motion.h3>
             <p 
-              className="text-sm"
+              className="text-sm font-geist-mono"
               style={{ color: colors.text }}
             >
               {followers.toLocaleString()} followers
@@ -138,7 +138,7 @@ const PostCard: React.FC<PostCardProps> = ({
       {/* Description */}
       <div className="p-4">
         <p 
-          className="mb-4 leading-relaxed"
+          className="mb-4 leading-relaxed font-geist-mono"
           style={{ color: colors.text }}
         >
           {description}
@@ -172,6 +172,7 @@ const PostCard: React.FC<PostCardProps> = ({
                 initial={{ scale: 1.2 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.2 }}
+                className="font-geist-mono"
               >
                 {likeCount.toLocaleString()}
               </motion.span>
@@ -189,7 +190,7 @@ const PostCard: React.FC<PostCardProps> = ({
                 className="w-6 h-6" 
                 style={{ color: colors.text }}
               />
-              <span style={{ color: colors.text }}>
+              <span style={{ color: colors.text }} className="font-geist-mono">
                 {initialComments.toLocaleString()}
               </span>
             </motion.button>
@@ -210,7 +211,7 @@ const PostCard: React.FC<PostCardProps> = ({
           {/* Copy Button (new right side action) */}
           <motion.button
             onClick={handleCopy}
-            className="flex items-center gap-2 px-4 py-2 rounded-full font-bold text-xs"
+            className="flex items-center gap-2 px-4 py-2 rounded-full font-bold text-xs font-geist-mono"
             style={{ backgroundColor: colors.brand, color: '#000' }}
             whileHover={{ scale: 1.05, backgroundColor: colors.hoverBrand }}
             whileTap={{ scale: 0.95 }}

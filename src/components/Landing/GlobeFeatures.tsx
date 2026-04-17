@@ -130,7 +130,7 @@ const GlobeFeatures: React.FC = () => {
                                         {activeLocation.title}
                                     </h3>
                                     <p 
-                                        className="text-sm md:text-lg leading-relaxed font-dm-sans"
+                                        className="text-sm md:text-lg leading-relaxed font-geist-mono"
                                         style={{ color: colors.text }}
                                     >
                                         {activeLocation.text}

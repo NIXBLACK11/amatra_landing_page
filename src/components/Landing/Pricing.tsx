@@ -47,7 +47,7 @@ const Pricing: React.FC = () => {
           STYLE PATH
         </motion.h2>
         <motion.p 
-          className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-dm-sans"
+          className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-geist-mono"
           style={{ color: colors.text }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,14 +93,14 @@ const Pricing: React.FC = () => {
                   $0
                 </span>
                 <span 
-                  className="text-lg font-dm-sans"
+                  className="text-lg font-geist-mono"
                   style={{ color: colors.hoverText }}
                 >
                   /forever
                 </span>
               </div>
               <p 
-                className="mt-4 text-base font-dm-sans"
+                className="mt-4 text-base font-geist-mono"
                 style={{ color: colors.hoverText }}
               >
                 Perfect for discovering new styles and getting inspired.
@@ -126,7 +126,7 @@ const Pricing: React.FC = () => {
                     />
                   )}
                   <span 
-                    className="font-dm-sans"
+                    className="font-geist-mono"
                     style={{ color: colors.text }}
                   >
                     {feature.text}
@@ -137,7 +137,7 @@ const Pricing: React.FC = () => {
 
             {/* CTA Button */}
             <motion.button 
-              className="w-full py-4 font-bold font-dm-sans transition-all duration-300"
+              className="w-full py-4 font-bold font-geist-mono transition-all duration-300"
               style={{ 
                 border: `1px solid ${colors.text}`,
                 color: colors.text,
@@ -191,14 +191,14 @@ const Pricing: React.FC = () => {
                   $5
                 </span>
                 <span 
-                  className="text-lg font-dm-sans opacity-70"
+                  className="text-lg font-geist-mono opacity-70"
                   style={{ color: '#000000' }}
                 >
                   /month
                 </span>
               </div>
               <p 
-                className="mt-4 text-base font-dm-sans opacity-80"
+                className="mt-4 text-base font-geist-mono opacity-80"
                 style={{ color: '#000000' }}
               >
                 Unlock your full creative potential with AI-powered styling.
@@ -217,7 +217,7 @@ const Pricing: React.FC = () => {
                     style={{ color: '#000000' }} 
                   />
                   <span 
-                    className="font-dm-sans font-medium"
+                    className="font-geist-mono font-medium"
                     style={{ color: '#000000' }}
                   >
                     {feature.text}
@@ -228,7 +228,7 @@ const Pricing: React.FC = () => {
 
             {/* CTA Button */}
             <motion.button 
-              className="w-full py-4 font-bold font-dm-sans transition-all duration-300"
+              className="w-full py-4 font-bold font-geist-mono transition-all duration-300"
               style={{ 
                 backgroundColor: '#000000',
                 color: colors.brand
@@ -248,7 +248,7 @@ const Pricing: React.FC = () => {
 
       {/* Bottom Note */}
       <motion.p 
-        className="mt-12 text-sm font-dm-sans text-center max-w-xl px-4"
+        className="mt-12 text-sm font-geist-mono text-center max-w-xl px-4"
         style={{ color: colors.hoverText }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

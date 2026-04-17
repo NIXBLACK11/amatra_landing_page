@@ -143,7 +143,7 @@ const Features: React.FC = () => {
           DEFINE STYLE
         </motion.h1>
         <motion.p 
-          className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed font-dm-sans"
+          className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed font-geist-mono"
           style={{ color: colors.text }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
