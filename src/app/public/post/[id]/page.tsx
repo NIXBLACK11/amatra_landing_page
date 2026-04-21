@@ -7,24 +7,26 @@ import Header from "@/components/Landing/Header"
 import Footer from "@/components/Landing/Footer"
 import { ArrowLeft, Download, Heart, MessageCircle, Bookmark, User, Calendar, Tag } from "lucide-react"
 
-interface OutfitItem {
+interface OutfitComponent {
   id: string
-  name: string
-  category: string
-  color: string
-  brand?: string
-  imageUrl?: string
+  assetId: string
+  url: string
+  productName: string
+  productURL: string
+}
+
+interface OutfitComponents {
+  [key: string]: OutfitComponent
 }
 
 interface Outfit {
   id: string
   name: string
-  description?: string
-  items: OutfitItem[]
-  occasion?: string
-  season?: string
-  style?: string
-  imageUrl?: string
+  assetId: string
+  imageUrl: string
+  createdAt: string
+  usedInPost: boolean
+  components: OutfitComponents
 }
 
 interface PostUser {
@@ -38,7 +40,7 @@ interface PublicPost {
   userId: string
   outfitId: string
   text: string
-  tags: string[]
+  tags: string[] | null
   createdAt: string
   updatedAt: string
   outfit: Outfit
@@ -86,6 +88,7 @@ export default function PublicPostPage() {
   }, [params.id])
 
   const formatDate = (dateString: string) => {
+    if (typeof window === 'undefined') return dateString
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
@@ -149,7 +152,7 @@ export default function PublicPostPage() {
     <div className="min-h-screen" style={{ backgroundColor: colors.background }}>
       <Header />
       
-      <main className="container mx-auto px-4 py-8 max-w-4xl">
+      <main className="container mx-auto px-6 py-8 max-w-7xl">
         {/* Back Button */}
         <button
           onClick={() => router.back()}
@@ -160,7 +163,98 @@ export default function PublicPostPage() {
           Back
         </button>
 
-        {/* Post Header */}
+        {/* Hero Section - Image and Components Side by Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          {/* Outfit Main Image */}
+          <div>
+            {post.outfit.imageUrl ? (
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src={post.outfit.imageUrl}
+                  alt={post.outfit.name}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            ) : (
+              <div className="rounded-2xl h-96 flex items-center justify-center" 
+                   style={{ backgroundColor: colors.lightBackground }}>
+                <div className="text-center" style={{ color: colors.hoverText }}>
+                  <User size={48} className="mx-auto mb-2" />
+                  <p>No outfit image available</p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Components Section */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4" style={{ color: colors.text }}>
+              Wardrobe Components
+            </h2>
+            <div className="grid grid-cols-2 gap-4">
+              {Object.entries(post.outfit.components).map(([componentType, component]) => (
+                <div
+                  key={component.id}
+                  className="p-4 rounded-xl border shadow-md hover:shadow-lg transition-shadow"
+                  style={{ 
+                    backgroundColor: colors.background,
+                    borderColor: colors.lightBackground
+                  }}
+                >
+                  <div className="flex flex-col items-center text-center">
+                    {/* Component Type Label */}
+                    <div className="mb-2">
+                      <span className="text-xs font-medium uppercase tracking-wider px-2 py-1 rounded-full"
+                            style={{ 
+                              backgroundColor: colors.lightBackground,
+                              color: colors.hoverText
+                            }}>
+                        {componentType}
+                      </span>
+                    </div>
+                    
+                    {/* Component Image */}
+                    {component.url ? (
+                      <div className="w-20 h-20 rounded-lg overflow-hidden mb-2">
+                        <img
+                          src={component.url}
+                          alt={component.productName}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-20 h-20 rounded-lg mb-2 flex items-center justify-center" 
+                           style={{ backgroundColor: colors.lightBackground }}>
+                        <User size={24} style={{ color: colors.icon }} />
+                      </div>
+                    )}
+                    
+                    {/* Product Name */}
+                    <h3 className="font-semibold text-sm mb-1" style={{ color: colors.text }}>
+                      {component.productName}
+                    </h3>
+                    
+                    {/* Product Link */}
+                    {component.productURL && (
+                      <a 
+                        href={component.productURL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs hover:underline"
+                        style={{ color: colors.brand }}
+                      >
+                        View Product
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+
+        {/* Post Info Section */}
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
@@ -195,14 +289,14 @@ export default function PublicPostPage() {
           </h1>
 
           {post.text && (
-            <p className="text-lg leading-relaxed mb-6" style={{ color: colors.text }}>
+            <p className="text-lg leading-relaxed mb-4" style={{ color: colors.text }}>
               {post.text}
             </p>
           )}
 
           {/* Tags */}
-          {post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-6">
+          {post.tags && post.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-4">
               {post.tags.map((tag, index) => (
                 <span
                   key={index}
@@ -219,144 +313,35 @@ export default function PublicPostPage() {
             </div>
           )}
 
-          {/* Engagement Stats (Display Only) */}
+          {/* Engagement Stats */}
           <div className="flex gap-6 text-sm" style={{ color: colors.hoverText }}>
             <div className="flex items-center gap-1">
               <Heart size={16} />
-              {post.likeCount} likes
+              <span>{post.likeCount} likes</span>
             </div>
             <div className="flex items-center gap-1">
               <MessageCircle size={16} />
-              {post.commentCount} comments
+              <span>{post.commentCount} comments</span>
             </div>
             <div className="flex items-center gap-1">
               <Bookmark size={16} />
-              {post.bookmarked ? 'Saved' : 'Not saved'}
+              <span>{post.bookmarked ? 'Saved' : 'Not saved'}</span>
             </div>
           </div>
         </div>
 
-        {/* Outfit Image */}
-        {post.outfit.imageUrl && (
-          <div className="mb-8">
-            <div className="rounded-lg overflow-hidden">
-              <img
-                src={post.outfit.imageUrl}
-                alt={post.outfit.name}
-                className="w-full h-auto max-h-96 object-cover"
-              />
-            </div>
-          </div>
-        )}
 
-        {/* Outfit Details */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-4" style={{ color: colors.text }}>
-            Outfit Details
-          </h2>
-          
-          {post.outfit.description && (
-            <p className="mb-6" style={{ color: colors.hoverText }}>
-              {post.outfit.description}
-            </p>
-          )}
-
-          {/* Outfit Metadata */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            {post.outfit.occasion && (
-              <div>
-                <h3 className="font-semibold mb-1" style={{ color: colors.text }}>Occasion</h3>
-                <p style={{ color: colors.hoverText }}>{post.outfit.occasion}</p>
-              </div>
-            )}
-            {post.outfit.season && (
-              <div>
-                <h3 className="font-semibold mb-1" style={{ color: colors.text }}>Season</h3>
-                <p style={{ color: colors.hoverText }}>{post.outfit.season}</p>
-              </div>
-            )}
-            {post.outfit.style && (
-              <div>
-                <h3 className="font-semibold mb-1" style={{ color: colors.text }}>Style</h3>
-                <p style={{ color: colors.hoverText }}>{post.outfit.style}</p>
-              </div>
-            )}
-          </div>
-
-          {/* Outfit Items */}
-          <h3 className="text-xl font-bold mb-4" style={{ color: colors.text }}>
-            Components
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {post.outfit.items.map((item, index) => (
-              <div
-                key={item.id}
-                className="p-4 rounded-lg border"
-                style={{ 
-                  backgroundColor: colors.background,
-                  borderColor: colors.lightBackground
-                }}
-              >
-                <div className="flex items-start gap-3">
-                  {item.imageUrl && (
-                    <div className="w-16 h-16 rounded overflow-hidden flex-shrink-0">
-                      <img
-                        src={item.imageUrl}
-                        alt={item.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className="flex-1">
-                    <h4 className="font-semibold" style={{ color: colors.text }}>
-                      {item.name}
-                    </h4>
-                    <p className="text-sm" style={{ color: colors.hoverText }}>
-                      {item.category}
-                    </p>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span 
-                        className="w-4 h-4 rounded-full border"
-                        style={{ 
-                          backgroundColor: item.color,
-                          borderColor: colors.icon
-                        }}
-                      />
-                      <span className="text-sm" style={{ color: colors.hoverText }}>
-                        {item.color}
-                      </span>
-                    </div>
-                    {item.brand && (
-                      <p className="text-sm mt-1" style={{ color: colors.hoverText }}>
-                        {item.brand}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Download CTA */}
-        <div className="mt-12 p-8 rounded-lg text-center"
-             style={{ backgroundColor: colors.lightBackground }}>
-          <h2 className="text-2xl font-bold mb-4" style={{ color: colors.text }}>
-            Want to See More?
-          </h2>
-          <p className="mb-6" style={{ color: colors.hoverText }}>
-            Download the Amatra app to explore full outfit details, save your favorites, and create your own AI-powered wardrobe.
-          </p>
+        {/* Download CTA Section */}
+        <div className="mt-8 text-center">
           <button
-            onClick={handleDownload}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors hover:opacity-90"
-            style={{ 
-              backgroundColor: colors.brand,
-              color: colors.background 
-            }}
+            onClick={() => window.open('https://x.com/_AMATRA_', '_blank')}
+            className="inline-block transition-transform hover:scale-105"
           >
-            <Download size={20} />
-            Download Amatra App
+            <img 
+              src="/download/appStore.png" 
+              alt="Download on App Store" 
+              className="h-12 w-auto cursor-pointer"
+            />
           </button>
         </div>
       </main>

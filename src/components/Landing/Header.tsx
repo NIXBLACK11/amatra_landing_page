@@ -36,7 +36,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center relative">
         <div className="flex items-center">
           <img 
-            src="brand/main_logo.png" 
+            src="/brand/main_logo.png" 
             alt="amatra" 
             className="h-12 w-auto"
           />
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
             transition={{ duration: 0.2 }}
           >
             <img 
-              src="download/appStore.png" 
+              src="/download/appStore.png" 
               alt="Download on App Store" 
               className="h-10 w-auto cursor-pointer"
             />
