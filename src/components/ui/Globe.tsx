@@ -15,7 +15,7 @@ export function Globe({markers, onMarkerHover, className}: GlobeProps) {
         className={className}
         markers={markers}
         config={{
-          atmosphereColor: "#4da6ff",
+          atmosphereColor: "#ffffff",
           atmosphereIntensity: 20,
           bumpScale: 5,
           autoRotateSpeed: 0.3,

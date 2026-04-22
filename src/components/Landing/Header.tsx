@@ -40,12 +40,6 @@ const Header: React.FC = () => {
             alt="amatra" 
             className="h-12 w-auto"
           />
-          <span 
-            className="ml-3 text-2xl font-bold hidden lg:block font-cormorant-garamond"
-            style={{ color: colors.brand }}
-          >
-            AMATRA
-          </span>
         </div>
         
         <nav className="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
