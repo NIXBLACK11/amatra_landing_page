@@ -3,195 +3,122 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
-import { PiInstagramLogo, PiXLogo, PiEnvelope, PiDiscordLogo, PiLinkedinLogo, PiTelegramLogo } from 'react-icons/pi';
-import { usePathname } from 'next/navigation';
+import { PiXLogo, PiTelegramLogo, PiLinkedinLogo, PiDiscordLogo } from 'react-icons/pi';
+
+const FooterLink: React.FC<{
+  href: string;
+  children: React.ReactNode;
+  external?: boolean;
+}> = ({ href, children, external }) => {
+  const { colors } = useTheme();
+  return (
+    <motion.a
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      className="block font-geist-mono text-sm transition-colors duration-150"
+      style={{ color: colors.text, opacity: 0.65 }}
+      whileHover={{ x: 4, opacity: 1 }}
+      transition={{ duration: 0.15 }}
+    >
+      {children}
+    </motion.a>
+  );
+};
 
 const Footer: React.FC = () => {
   const { colors } = useTheme();
-  const pathname = usePathname();
-  const currentYear = new Date().getFullYear();
-
-  const handleNavClick = (sectionId: string) => {
-    if (pathname === '/') {
-      // If on home page, scroll to section
-      if (sectionId === 'updates') {
-        window.location.href = '/updates';
-      } else {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If on other page, navigate to home with anchor
-      if (sectionId === 'updates') {
-        window.location.href = '/updates';
-      } else {
-        window.location.href = `/#${sectionId}`;
-      }
-    }
-  };
 
   return (
-    <footer className="w-full pt-10 flex flex-col items-center" style={{ backgroundColor: colors.background, color: colors.text }}>
-      <div className="w-full max-w-6xl px-4 flex flex-col">
-        {/* Logo & Icons */}
-        <div className="w-full py-10 max-w-6xl flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
-          <div className="flex flex-col items-start gap-4">
-            <a href="/" className="cursor-pointer">
-              <h2 className="text-2xl font-bold font-cormorant-garamond" style={{ color: colors.brand }}>amatra</h2>
+    <footer className="w-full pt-14 flex flex-col items-center" style={{ backgroundColor: colors.background, color: colors.text }}>
+      <div className="w-full max-w-6xl px-6 flex flex-col">
+        {/* Top section */}
+        <div className="w-full pb-12 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-0">
+
+          {/* Brand */}
+          <div className="flex flex-col items-start gap-5">
+            <a href="/">
+              <img src="/brand/main_logo.png" alt="amatra" className="h-9 w-auto" />
             </a>
-            <div className="flex gap-4 mt-2">
-              <a href="https://x.com/_AMATRA_" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-2xl transition cursor-pointer" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>
-                <PiXLogo />
-              </a>
-              <a href="https://t.me" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="text-2xl transition cursor-pointer" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>
-                <PiTelegramLogo />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-2xl transition cursor-pointer" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>
-                <PiLinkedinLogo />
-              </a>
-              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-2xl transition cursor-pointer" style={{ color: colors.text }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText} onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}>
-                <PiDiscordLogo />
-              </a>
+            <p className="font-geist-mono text-sm max-w-[200px] leading-relaxed" style={{ color: colors.text, opacity: 0.5 }}>
+              Fashion-forward social app for outfit creators.
+            </p>
+            <div className="flex gap-4">
+              {[
+                { href: 'https://x.com/_AMATRA_', icon: <PiXLogo />, label: 'Twitter' },
+                { href: 'https://t.me', icon: <PiTelegramLogo />, label: 'Telegram' },
+                { href: 'https://linkedin.com', icon: <PiLinkedinLogo />, label: 'LinkedIn' },
+                { href: 'https://discord.com', icon: <PiDiscordLogo />, label: 'Discord' },
+              ].map(({ href, icon, label }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="text-xl transition-opacity duration-150"
+                  style={{ color: colors.text, opacity: 0.5 }}
+                  whileHover={{ opacity: 1, scale: 1.1 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  {icon}
+                </motion.a>
+              ))}
             </div>
           </div>
 
-          {/* Menu */}
-          <div className="flex flex-col items-start gap-2">
-            <span className="text-lg font-semibold mb-2 font-montserrat">Menu</span>
-            <motion.button
-              onClick={() => handleNavClick('features')}
-              className="text-left transition cursor-pointer font-geist-mono"
-              style={{ color: colors.text }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-            >
-              Features
-            </motion.button>
-            <motion.button
-              onClick={() => handleNavClick('updates')}
-              className="text-left transition cursor-pointer font-geist-mono"
-              style={{ color: colors.text }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-            >
-              Updates
-            </motion.button>
-            <motion.button
-              onClick={() => handleNavClick('reviews')}
-              className="text-left transition cursor-pointer font-geist-mono"
-              style={{ color: colors.text }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-            >
-              Reviews
-            </motion.button>
-            <motion.button
-              onClick={() => handleNavClick('faq')}
-              className="text-left transition cursor-pointer font-geist-mono"
-              style={{ color: colors.text }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-            >
-              FAQ
-            </motion.button>
+          {/* Pages */}
+          <div className="flex flex-col gap-2.5">
+            <span className="text-xs font-bold font-montserrat tracking-widest uppercase mb-1" style={{ color: colors.text, opacity: 0.35 }}>
+              Pages
+            </span>
+            <FooterLink href="/#features">Features</FooterLink>
+            <FooterLink href="/#pricing">Pricing</FooterLink>
+            <FooterLink href="/about">About</FooterLink>
+            <FooterLink href="/updates">Updates</FooterLink>
+            <FooterLink href="/faq">FAQ</FooterLink>
           </div>
 
-          {/* Legal */}
-          <div className="flex flex-col items-start gap-2">
-            <span className="text-lg font-semibold mb-2 font-montserrat">Legal</span>
-            <motion.a
-              href="/legal/privacy-policy"
-              className="transition cursor-pointer font-geist-mono"
-              style={{ color: colors.text }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-            >
-              Privacy Policy
-            </motion.a>
-            <motion.a
-              href="/legal/terms-of-service"
-              className="transition cursor-pointer font-geist-mono"
-              style={{ color: colors.text }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-            >
-              Terms of Service
-            </motion.a>
-            <motion.a
-              href="https://whitepaper.amatra.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition cursor-pointer font-geist-mono"
-              style={{ color: colors.text }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-            >
-              Whitepaper
-            </motion.a>
+          {/* More */}
+          <div className="flex flex-col gap-2.5">
+            <span className="text-xs font-bold font-montserrat tracking-widest uppercase mb-1" style={{ color: colors.text, opacity: 0.35 }}>
+              More
+            </span>
+            <FooterLink href="/reviews">Reviews</FooterLink>
+            <FooterLink href="/whitepaper">Whitepaper</FooterLink>
+            <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
+            <FooterLink href="/terms-of-service">Terms of Service</FooterLink>
           </div>
 
-          {/* Socials */}
-          <div className="flex flex-col items-start gap-2">
-            <span className="text-lg font-semibold mb-2 font-montserrat">Socials</span>
-            <motion.a
-              href="https://discord.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition cursor-pointer font-geist-mono"
-              style={{ color: colors.text }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-            >
-              Discord
-            </motion.a>
-            <motion.a
-              href="https://x.com/_AMATRA_"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition cursor-pointer font-geist-mono"
-              style={{ color: colors.text }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-            >
-              Twitter
-            </motion.a>
-            <motion.a
-              href="https://medium.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition cursor-pointer font-geist-mono"
-              style={{ color: colors.text }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = colors.hoverText}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = colors.text}
-            >
-              Medium
-            </motion.a>
+          {/* Connect */}
+          <div className="flex flex-col gap-2.5">
+            <span className="text-xs font-bold font-montserrat tracking-widest uppercase mb-1" style={{ color: colors.text, opacity: 0.35 }}>
+              Connect
+            </span>
+            <FooterLink href="https://discord.com" external>Discord</FooterLink>
+            <FooterLink href="https://x.com/_AMATRA_" external>Twitter / X</FooterLink>
+            <FooterLink href="https://linkedin.com" external>LinkedIn</FooterLink>
+            <FooterLink href="https://t.me" external>Telegram</FooterLink>
           </div>
         </div>
 
+        {/* Divider */}
+        <div className="w-full h-px mb-6" style={{ backgroundColor: `${colors.text}12` }} />
+
+        {/* Bottom row */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 pb-8">
+          <p className="font-geist-mono text-xs" style={{ color: colors.text, opacity: 0.35 }}>
+            © {new Date().getFullYear()} Amatra. All rights reserved.
+          </p>
+          <p className="font-geist-mono text-xs" style={{ color: colors.text, opacity: 0.35 }}>
+            Made with passion for fashion.
+          </p>
+        </div>
       </div>
-      {/* Bottom Big Logo Section - Keeping as is */}
-      <div className="py-2 w-full overflow-hidden" style={{ borderColor: colors.text, backgroundColor: colors.brand }}>
-        <h1 className="text-[4rem] text-black md:text-[20rem] font-bold text-center [text-shadow:_1px_0_0_currentColor,_-1px_0_0_currentColor,_0_1px_0_currentColor,_0_-1px_0_currentColor] break-words font-montserrat">
+
+      {/* Big brand wordmark */}
+      <div className="py-2 w-full overflow-hidden" style={{ backgroundColor: colors.brand }}>
+        <h1 className="text-[4rem] text-black md:text-[20rem] font-bold text-center break-words font-montserrat leading-none tracking-tight">
           AMATRA
         </h1>
       </div>

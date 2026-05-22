@@ -9,39 +9,39 @@ import { FeatureCard } from '@/components/features/FeatureCard';
 const Features: React.FC = () => {
   const { colors } = useTheme();
 
-  const features = [
+  const topFeatures = [
     {
-      title: "AI Style Assistant",
-      description: "Get personalized outfit recommendations powered by advanced AI that learns your unique fashion preferences.",
-      image: "https://picsum.photos/seed/aistyle/400/500",
+      title: "AI Outfit Composer",
+      description: "Select pieces from your wardrobe and let AI compose a realistic full-body outfit image. See exactly how your clothes work together before you wear them.",
+      image: "https://picsum.photos/seed/fashion-compose/400/500",
       height: "500px",
       span: false,
       component: undefined,
       backgroundColor: undefined,
-      link: "#ai-style-assistant"
+      link: "/#features",
     },
     {
       title: "Social Fashion Feed",
-      description: "Discover endless inspiration from fashion creators worldwide. Share your looks and build your style community.",
-      image: "https://picsum.photos/seed/socialfeed/800/500",
+      description: "Share your looks as posts, follow creators who inspire you, and explore an infinite feed from your fashion community. Every post links to the real products.",
+      image: "https://picsum.photos/seed/fashion-social/800/500",
       height: "500px",
       span: true,
       component: undefined,
       backgroundColor: undefined,
-      link: "#social-fashion-feed"
-    }
+      link: "/#features",
+    },
   ];
 
   const remainingFeatures = [
     {
-      title: "Smart Shopping Links",
-      description: "Shop directly from outfit posts. Every look is shoppable with instant access to curated fashion items.",
-      image: "https://picsum.photos/seed/shopping/400/700",
-      height: "700px",
+      title: "Virtual Wardrobe",
+      description: "Upload photos of your clothing items and organise them into a personal digital wardrobe. Categories include tops, bottoms, outerwear, headwear, footwear, and model shots — everything in one place.",
+      image: "https://picsum.photos/seed/wardrobe-gallery/400/560",
+      height: "560px",
       span: false,
       component: undefined,
       backgroundColor: undefined,
-      link: undefined
+      link: undefined,
     },
     {
       title: "Updates",
@@ -51,86 +51,59 @@ const Features: React.FC = () => {
       span: false,
       image: undefined,
       backgroundColor: undefined,
-      link: "/updates"
+      link: "/updates",
     },
     {
-      title: "Style Analytics",
-      description: "Track your fashion influence with detailed analytics. See what works and grow your personal brand.",
-      image: "https://picsum.photos/seed/analytics/400/420",
-      height: "420px",
-      span: false,
-      backgroundColor: undefined,
-      component: undefined,
-      link: "#style-analytics"
-    },
-    {
-      title: "Trend Forecasting",
-      description: "Stay ahead of the curve with AI-powered trend predictions tailored to your style preferences.",
-      image: "https://picsum.photos/seed/trends/400/400",
-      height: "400px",
-      span: false,
-      component: undefined,
-      backgroundColor: colors.brand,
-      link: "#trend-forecasting"
-    },
-    {
-      title: "Community Challenges",
-      description: "Participate in weekly fashion challenges. Win prizes and gain recognition in the fashion community.",
-      image: "https://picsum.photos/seed/challenges/400/360",
-      height: "650px",
+      title: "Copy Any Outfit",
+      description: "See a look you love in someone else's post? Copy their entire outfit into your wardrobe with a single tap, then swap pieces and make it your own.",
+      image: "https://picsum.photos/seed/copy-outfit/400/500",
+      height: "500px",
       span: false,
       component: undefined,
       backgroundColor: undefined,
-      link: "#community-challenges"
+      link: undefined,
     },
     {
-      title: "Personal Stylist",
-      description: "Get 1-on-1 styling advice from professional fashion experts who understand your unique taste.",
-      image: "https://picsum.photos/seed/stylist/400/480",
-      height: "480px",
+      title: "Shop the Look",
+      description: "Every outfit post shows the exact products used. Tap any component — top, bottoms, shoes — to view product details and links. Discover exactly where to shop each piece.",
+      image: "https://picsum.photos/seed/shop-fashion/400/460",
+      height: "460px",
       span: false,
       component: undefined,
       backgroundColor: undefined,
-      link: "#personal-stylist"
+      link: undefined,
     },
     {
-      title: "Sustainable Fashion",
-      description: "Discover eco-friendly brands and make sustainable choices without compromising on style.",
-      image: "https://picsum.photos/seed/sustainable/400/440",
+      title: "Go Premium",
+      description: "Unlock unlimited AI outfit generations and enjoy a completely ad-free experience. Create as many looks as you want, with priority generation and no limits.",
+      image: undefined,
+      height: "560px",
+      span: false,
+      component: undefined,
+      backgroundColor: colors.text,
+      link: "/#pricing",
+    },
+    {
+      title: "Discover & Connect",
+      description: "Search posts by keyword, discover trending looks, and build your fashion network. Follow creators, get notified on likes and comments, and grow your style community.",
+      image: "https://picsum.photos/seed/discover-community/400/440",
       height: "440px",
       span: false,
       component: undefined,
       backgroundColor: undefined,
-      link: "#sustainable-fashion"
+      link: undefined,
     },
-    {
-      title: "Sustainable Fashion2",
-      description: "Discover eco-friendly brands and make sustainable choices without compromising on style.",
-      image: "https://picsum.photos/seed/sustainable/400/440",
-      height: "440px",
-      span: false,
-      component: undefined,
-      backgroundColor: undefined
-    },
-    {
-      title: "Sustainable Fashion3",
-      description: "Discover eco-friendly brands and make sustainable choices without compromising on style.",
-      image: "https://picsum.photos/seed/sustainable/400/440",
-      height: "600px",
-      span: false,
-      component: undefined,
-      backgroundColor: undefined
-    }
   ];
 
   return (
-    <section 
+    <section
+      id="features"
       className="relative w-full min-h-screen py-20"
       style={{ backgroundColor: colors.background }}
     >
-      {/* Header Section */}
+      {/* Header */}
       <div className="text-center mb-20 px-4">
-        <motion.h1 
+        <motion.h1
           className="text-5xl md:text-7xl font-black mb-6 font-montserrat"
           style={{ color: colors.text }}
           initial={{ opacity: 0, y: 30 }}
@@ -138,26 +111,28 @@ const Features: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          FEATURES THAT
+          BUILD IT.
           <br />
-          DEFINE STYLE
+          WEAR IT.
+          <br />
+          SHARE IT.
         </motion.h1>
-        <motion.p 
-          className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed font-geist-mono"
-          style={{ color: colors.text }}
+        <motion.p
+          className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-geist-mono"
+          style={{ color: colors.text, opacity: 0.6 }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Experience the future of fashion with cutting-edge technology designed to elevate your personal style journey.
+          Every tool you need to create, express, and discover fashion — all in one app.
         </motion.p>
       </div>
 
-      {/* Featured Section - First Two Features */}
+      {/* Top two features */}
       <div className="px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {features.map((feature, index) => (
+          {topFeatures.map((feature, index) => (
             <div key={index} className={`${feature.span ? 'md:col-span-2' : ''} mb-3`}>
               <FeatureCard
                 title={feature.title}
@@ -175,7 +150,7 @@ const Features: React.FC = () => {
         </div>
       </div>
 
-      {/* Masonry Grid Layout - Remaining Features */}
+      {/* Remaining features — masonry */}
       <div className="px-4 md:px-8">
         <div className="columns-1 md:columns-3 gap-3 space-y-3">
           {remainingFeatures.map((feature, index) => (
