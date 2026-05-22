@@ -3,186 +3,201 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
-import { PiSun, PiMoon } from 'react-icons/pi';
 import PostCard from '@/components/App/PostCard';
+import { heroPosts } from '@/data/posts';
 
 const Hero: React.FC = () => {
   const { colors } = useTheme();
-  
-  // Mock data for posts
-  const posts = [
-    {
-      id: 1,
-      username: "fashionista_sarah",
-      userImage: "/user/head/head1.png",
-      followers: 15420,
-      postImage: "/user/post/post1.png",
-      description: "Just discovered this amazing combination! The perfect blend of casual and chic. What do you guys think? 🤔✨",
-      initialLikes: 342,
-      initialComments: 28
-    },
-    {
-      id: 2,
-      username: "style_guru_mike",
-      userImage: "/user/shirt/shirt1.png",
-      followers: 8930,
-      postImage: "/user/post/post2.png",
-      description: "Monday mood: Business casual with a twist! This outfit really speaks to my professional side while keeping it fresh.",
-      initialLikes: 189,
-      initialComments: 15
-    },
-    {
-      id: 3,
-      username: "trendsetter_alex",
-      userImage: "/user/jeans/jeans1.png",
-      followers: 22100,
-      postImage: "/user/post/post3.png",
-      description: "Weekend vibes achieved! 🌟 This comfortable yet stylish look is perfect for brunch dates or casual strolls.",
-      initialLikes: 567,
-      initialComments: 42
-    },
-    {
-      id: 4,
-      username: "minimalist_jane",
-      userImage: "/user/overlayer/overlayer1.png",
-      followers: 12800,
-      postImage: "/user/post/post4.png",
-      description: "Less is more. Sometimes the simplest outfits make the biggest statements. What's your go-to minimal look?",
-      initialLikes: 423,
-      initialComments: 31
-    }
-  ];
-
-  const handleLike = (liked: boolean, likeCount: number) => {
-    console.log(`Post ${liked ? 'liked' : 'unliked'}, total likes: ${likeCount}`);
-  };
-
-  const handleComment = () => {
-    console.log('Comment button clicked');
-  };
-
-  const handleBookmark = (bookmarked: boolean) => {
-    console.log(`Post ${bookmarked ? 'bookmarked' : 'unbookmarked'}`);
-  };
-
-  const { toggleTheme } = useTheme();
 
   return (
-    <section className="relative flex flex-col-reverse lg:flex-row w-full min-h-screen">
-      {/* Fixed Theme Switch Button */}
-      {/* <motion.button
-        className="fixed bottom-6 left-6 z-50 p-3 rounded-full shadow-lg"
-        style={{ backgroundColor: colors.brand }}
-        onClick={toggleTheme}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        {colors.background === '#ffffff' ? (
-          <PiMoon 
-            className="w-6 h-6" 
-            style={{ color: colors.text }}
+    <section id="hero" className="relative flex flex-col-reverse lg:flex-row w-full min-h-screen">
+
+      {/* LEFT — sticky brand panel */}
+      <div className="w-full lg:w-[58%] order-2 lg:order-1">
+        <div className="sticky top-0 h-screen flex items-center overflow-hidden" style={{ backgroundColor: colors.background }}>
+
+          {/* Dot grid background */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: `radial-gradient(circle, ${colors.text}0a 1px, transparent 1px)`,
+              backgroundSize: '30px 30px',
+            }}
           />
-        ) : (
-          <PiSun 
-            className="w-6 h-6" 
-            style={{ color: colors.text }}
+          {/* Radial fade over grid — keeps center clean */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: `radial-gradient(ellipse 80% 80% at 35% 50%, ${colors.background}f0 30%, transparent 80%)`,
+            }}
           />
-        )}
-      </motion.button> */}
-      {/* LEFT – sticky */}
-      <div className="w-full lg:w-3/5 order-2 lg:order-1">
-        <motion.div 
-          className="sticky top-0 h-screen flex items-center justify-center"
-          style={{ backgroundColor: colors.background }}
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="px-4">
-            <motion.h1 
-              className="text-7xl lg:text-[10rem] font-black mb-6 tracking-tight [text-shadow:_1px_0_0_currentColor,_-1px_0_0_currentColor,_0_1px_0_currentColor,_0_-1px_0_currentColor] font-montserrat"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              style={{ color: colors.text }}
+
+          <div className="relative z-10 px-8 lg:px-16 xl:px-20 w-full max-w-2xl">
+
+            {/* Eyebrow */}
+            <motion.div
+              className="inline-flex items-center gap-2.5 mb-8"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 0.6, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              IMAGINE YOU'R
-              <br />
-              STYLES
-            </motion.h1>
-            <motion.p 
-              className="text-xl mb-8 font-geist-mono"
-              style={{ color: colors.text }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              <span
+                className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                style={{ backgroundColor: colors.brand }}
+              />
+              <span
+                className="font-geist-mono text-xs uppercase tracking-[0.18em]"
+                style={{ color: colors.text }}
+              >
+                Fashion AI · iOS & Android
+              </span>
+            </motion.div>
+
+            {/* Headline — Montserrat + Cormorant mix */}
+            <div className="mb-8 leading-none">
+              <motion.span
+                className="block font-montserrat font-black text-[clamp(3.5rem,8vw,8.5rem)] tracking-tight"
+                style={{ color: colors.text }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.85, delay: 0.15 }}
+              >
+                IMAGINE
+              </motion.span>
+
+              <motion.span
+                className="block font-cormorant-garamond italic font-light text-[clamp(3.8rem,8.8vw,9.5rem)] tracking-normal"
+                style={{ color: colors.text }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.85, delay: 0.28 }}
+              >
+                your
+              </motion.span>
+
+              <motion.span
+                className="block font-montserrat font-black text-[clamp(3.5rem,8vw,8.5rem)] tracking-tight"
+                style={{ color: colors.text }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.85, delay: 0.41 }}
+              >
+                STYLE
+                <span style={{ color: colors.brand }}>.</span>
+              </motion.span>
+            </div>
+
+            {/* Thin accent line */}
+            <motion.div
+              className="h-px mb-6 origin-left"
+              style={{ backgroundColor: `${colors.text}18`, width: 48 }}
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.55 }}
+            />
+
+            {/* Subtitle */}
+            <motion.p
+              className="text-[15px] mb-8 font-geist-mono max-w-xs leading-[1.75]"
+              style={{ color: colors.text, opacity: 0.52 }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 0.52, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
             >
-              Amatra is a social app where you share outfits with links, mix & match with AI, and inspire others to copy your style.
+              Build virtual outfits from your real wardrobe, compose AI looks, and share them with a community of fashion lovers.
             </motion.p>
-            
-            <motion.div 
-              className="flex gap-4"
-              initial={{ opacity: 0, y: 20 }}
+
+            {/* Download buttons */}
+            <motion.div
+              className="flex gap-3 flex-wrap mb-5"
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.7, delay: 0.72 }}
             >
               <motion.button
-                className="w-40 h-16"
+                className="w-[148px] h-[50px]"
                 onClick={() => window.open('https://apps.apple.com', '_blank')}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04, y: -1 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.15 }}
               >
-                <img 
-                  src="/download/appStore.png" 
-                  alt="Download on App Store"
-                  className="w-full h-full object-contain"
-                />
+                <img src="/download/appStore.png" alt="App Store" className="w-full h-full object-contain" />
               </motion.button>
-              
               <motion.button
-                className="w-40 h-16"
+                className="w-[148px] h-[50px]"
                 onClick={() => window.open('https://play.google.com', '_blank')}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04, y: -1 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.15 }}
               >
-                <img 
-                  src="/download/googlePlay.png" 
-                  alt="Get it on Google Play"
-                  className="w-full h-full object-contain"
-                />
+                <img src="/download/googlePlay.png" alt="Google Play" className="w-full h-full object-contain" />
               </motion.button>
             </motion.div>
+
+
           </div>
-        </motion.div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            className="absolute bottom-8 left-8 lg:left-16 xl:left-20 flex items-center gap-2.5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.3 }}
+          >
+            <div className="relative w-px h-9 overflow-hidden rounded-full" style={{ backgroundColor: `${colors.text}15` }}>
+              <motion.div
+                className="absolute top-0 left-0 w-full rounded-full"
+                style={{ height: '40%', backgroundColor: `${colors.text}40` }}
+                animate={{ y: ['0%', '160%', '0%'] }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+              />
+            </div>
+            <span
+              className="font-geist-mono text-[10px] uppercase tracking-[0.2em]"
+              style={{ color: colors.text, opacity: 0.22 }}
+            >
+              scroll
+            </span>
+          </motion.div>
+
+        </div>
       </div>
 
-      {/* RIGHT – scrollable content */}
-      <div className="w-full lg:w-2/5 px-4 pt-20 space-y-6 scrollbar-hide order-1 lg:order-2">
-        {posts.map((post, index) => (
-          <motion.div
-            key={post.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 * index }}
-          >
-            <PostCard
-              username={post.username}
-              userImage={post.userImage}
-              followers={post.followers}
-              postImage={post.postImage}
-              description={post.description}
-              initialLikes={post.initialLikes}
-              initialComments={post.initialComments}
-              onLike={handleLike}
-              onComment={handleComment}
-              onBookmark={handleBookmark}
-            />
-          </motion.div>
-        ))}
+      {/* RIGHT — scrollable posts feed */}
+      <div
+        className="relative w-full lg:w-[42%] order-1 lg:order-2"
+        style={{ borderLeft: `1px solid ${colors.text}0a` }}
+      >
+        {/* Top fade mask */}
+        <div
+          className="sticky top-0 z-10 h-28 pointer-events-none -mb-28"
+          style={{
+            background: `linear-gradient(to bottom, ${colors.background} 0%, ${colors.background}cc 50%, transparent 100%)`,
+          }}
+        />
+
+        <div className="pt-20 pb-10 space-y-0">
+          {heroPosts.map((post, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.12 * index }}
+            >
+              <PostCard {...post} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom fade mask */}
+        <div
+          className="sticky bottom-0 z-10 h-28 pointer-events-none -mt-28"
+          style={{
+            background: `linear-gradient(to top, ${colors.background} 0%, ${colors.background}cc 50%, transparent 100%)`,
+          }}
+        />
       </div>
+
     </section>
   );
 };

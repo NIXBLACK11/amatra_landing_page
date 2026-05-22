@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { useTheme } from "@/context/ThemeContext"
-import Header from "@/components/Landing/Header"
-import Footer from "@/components/Landing/Footer"
-import { ArrowLeft, Download, Heart, MessageCircle, Bookmark, User, Calendar, Tag } from "lucide-react"
+import PageLayout from "@/components/ui/PageLayout"
+import { ArrowLeft, Heart, MessageCircle, Bookmark, User, Calendar, Tag } from "lucide-react"
+
+const API_BASE = 'https://amatra-backend-225910516553.asia-south2.run.app'
 
 interface OutfitComponent {
   id: string
@@ -66,9 +67,7 @@ export default function PublicPostPage() {
     const fetchPost = async () => {
       try {
         const postId = params.id as string
-        const response = await fetch(`https://amatra-backend-225910516553.asia-south2.run.app/public/post/${postId}`)
-        
-        console.log("-------------------",response)
+        const response = await fetch(`${API_BASE}/public/post/${postId}`)
         if (!response.ok) {
           throw new Error('Post not found')
         }
@@ -103,56 +102,43 @@ export default function PublicPostPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: colors.background }}>
-        <Header />
-        <main className="container mx-auto px-4 py-8">
-          <div className="animate-pulse">
-            <div className="h-8 w-32 mb-4 rounded" style={{ backgroundColor: colors.lightBackground }}></div>
-            <div className="h-64 w-full rounded mb-4" style={{ backgroundColor: colors.lightBackground }}></div>
-            <div className="h-4 w-full mb-2 rounded" style={{ backgroundColor: colors.lightBackground }}></div>
-            <div className="h-4 w-3/4 rounded" style={{ backgroundColor: colors.lightBackground }}></div>
-          </div>
-        </main>
-        <Footer />
-      </div>
+      <PageLayout>
+        <div className="container mx-auto px-4 py-8 animate-pulse">
+          <div className="h-8 w-32 mb-4 rounded" style={{ backgroundColor: colors.lightBackground }} />
+          <div className="h-64 w-full rounded mb-4" style={{ backgroundColor: colors.lightBackground }} />
+          <div className="h-4 w-full mb-2 rounded" style={{ backgroundColor: colors.lightBackground }} />
+          <div className="h-4 w-3/4 rounded" style={{ backgroundColor: colors.lightBackground }} />
+        </div>
+      </PageLayout>
     )
   }
 
   if (error || !post) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: colors.background }}>
-        <Header />
-        <main className="container mx-auto px-4 py-8">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4" style={{ color: colors.text }}>
-              Post Not Found
-            </h1>
-            <p className="mb-4" style={{ color: colors.hoverText }}>
-              The post you're looking for doesn't exist or has been removed.
-            </p>
-            <button
-              onClick={() => router.back()}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors"
-              style={{ 
-                backgroundColor: colors.brand,
-                color: colors.background 
-              }}
-            >
-              <ArrowLeft size={16} />
-              Go Back
-            </button>
-          </div>
-        </main>
-        <Footer />
-      </div>
+      <PageLayout>
+        <div className="container mx-auto px-4 py-8 text-center">
+          <h1 className="text-2xl font-bold mb-4" style={{ color: colors.text }}>
+            Post Not Found
+          </h1>
+          <p className="mb-4" style={{ color: colors.hoverText }}>
+            The post you're looking for doesn't exist or has been removed.
+          </p>
+          <button
+            onClick={() => router.back()}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-colors"
+            style={{ backgroundColor: colors.brand, color: colors.background }}
+          >
+            <ArrowLeft size={16} />
+            Go Back
+          </button>
+        </div>
+      </PageLayout>
     )
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: colors.background }}>
-      <Header />
-      
-      <main className="container mx-auto px-6 py-8 max-w-7xl">
+    <PageLayout>
+      <div className="container mx-auto px-6 py-8 max-w-7xl">
         {/* Back Button */}
         <button
           onClick={() => router.back()}
@@ -331,22 +317,20 @@ export default function PublicPostPage() {
         </div>
 
 
-        {/* Download CTA Section */}
+        {/* Download CTA */}
         <div className="mt-8 text-center">
           <button
-            onClick={() => window.open('https://x.com/_AMATRA_', '_blank')}
+            onClick={() => window.open('https://apps.apple.com', '_blank')}
             className="inline-block transition-transform hover:scale-105"
           >
-            <img 
-              src="/download/appStore.png" 
-              alt="Download on App Store" 
+            <img
+              src="/download/appStore.png"
+              alt="Download on App Store"
               className="h-12 w-auto cursor-pointer"
             />
           </button>
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </PageLayout>
   )
 }
