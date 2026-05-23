@@ -108,6 +108,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
               src={image}
               alt={title}
               className="w-full h-full object-cover"
+              style={{ transform: 'scale(1.22)', transformOrigin: 'center center' }}
             />
           </div>
         )}
