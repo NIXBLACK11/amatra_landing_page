@@ -13,7 +13,7 @@ const Features: React.FC = () => {
     {
       title: "AI Outfit Composer",
       description: "Select pieces from your wardrobe and let AI compose a realistic full-body outfit image. See exactly how your clothes work together before you wear them.",
-      image: "https://picsum.photos/seed/fashion-compose/400/500",
+      image: "/screenshots/494shots_so.png",
       height: "500px",
       span: false,
       component: undefined,
@@ -23,7 +23,7 @@ const Features: React.FC = () => {
     {
       title: "Social Fashion Feed",
       description: "Share your looks as posts, follow creators who inspire you, and explore an infinite feed from your fashion community. Every post links to the real products.",
-      image: "https://picsum.photos/seed/fashion-social/800/500",
+      image: "/screenshots/76_1x_shots_so.png",
       height: "500px",
       span: true,
       component: undefined,
@@ -36,7 +36,7 @@ const Features: React.FC = () => {
     {
       title: "Virtual Wardrobe",
       description: "Upload photos of your clothing items and organise them into a personal digital wardrobe. Categories include tops, bottoms, outerwear, headwear, footwear, and model shots — everything in one place.",
-      image: "https://picsum.photos/seed/wardrobe-gallery/400/560",
+      image: "/screenshots/894shots_so.png",
       height: "560px",
       span: false,
       component: undefined,
@@ -56,7 +56,7 @@ const Features: React.FC = () => {
     {
       title: "Copy Any Outfit",
       description: "See a look you love in someone else's post? Copy their entire outfit into your wardrobe with a single tap, then swap pieces and make it your own.",
-      image: "https://picsum.photos/seed/copy-outfit/400/500",
+      image: "/screenshots/717shots_so.png",
       height: "500px",
       span: false,
       component: undefined,
@@ -66,7 +66,7 @@ const Features: React.FC = () => {
     {
       title: "Shop the Look",
       description: "Every outfit post shows the exact products used. Tap any component — top, bottoms, shoes — to view product details and links. Discover exactly where to shop each piece.",
-      image: "https://picsum.photos/seed/shop-fashion/400/460",
+      image: "/screenshots/913shots_so.png",
       height: "460px",
       span: false,
       component: undefined,
@@ -86,7 +86,7 @@ const Features: React.FC = () => {
     {
       title: "Discover & Connect",
       description: "Search posts by keyword, discover trending looks, and build your fashion network. Follow creators, get notified on likes and comments, and grow your style community.",
-      image: "https://picsum.photos/seed/discover-community/400/440",
+      image: "/screenshots/662shots_so.png",
       height: "440px",
       span: false,
       component: undefined,

@@ -3,7 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
-import { PiXLogo, PiTelegramLogo, PiLinkedinLogo, PiDiscordLogo } from 'react-icons/pi';
+import { PiInstagramLogo } from 'react-icons/pi';
+import { MdOutlineEmail } from "react-icons/md";
 
 const FooterLink: React.FC<{
   href: string;
@@ -45,16 +46,14 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex gap-4">
               {[
-                { href: 'https://x.com/_AMATRA_', icon: <PiXLogo />, label: 'Twitter' },
-                { href: 'https://t.me', icon: <PiTelegramLogo />, label: 'Telegram' },
-                { href: 'https://linkedin.com', icon: <PiLinkedinLogo />, label: 'LinkedIn' },
-                { href: 'https://discord.com', icon: <PiDiscordLogo />, label: 'Discord' },
+                { href: 'https://www.instagram.com/amatrafashion/', icon: <PiInstagramLogo />, label: 'Instagram' },
+                { href: 'mailto:admin@amatra.co', icon: <MdOutlineEmail />, label: 'Email' },
               ].map(({ href, icon, label }) => (
                 <motion.a
                   key={label}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={label === 'Email' ? undefined : '_blank'}
+                  rel={label === 'Email' ? undefined : 'noopener noreferrer'}
                   aria-label={label}
                   className="text-xl transition-opacity duration-150"
                   style={{ color: colors.text, opacity: 0.5 }}
@@ -95,10 +94,8 @@ const Footer: React.FC = () => {
             <span className="text-xs font-bold font-montserrat tracking-widest uppercase mb-1" style={{ color: colors.text, opacity: 0.35 }}>
               Connect
             </span>
-            <FooterLink href="https://discord.com" external>Discord</FooterLink>
-            <FooterLink href="https://x.com/_AMATRA_" external>Twitter / X</FooterLink>
-            <FooterLink href="https://linkedin.com" external>LinkedIn</FooterLink>
-            <FooterLink href="https://t.me" external>Telegram</FooterLink>
+            <FooterLink href="https://www.instagram.com/amatrafashion/" external>Instagram</FooterLink>
+            <FooterLink href="mailto:admin@amatra.co">Email</FooterLink>
           </div>
         </div>
 
