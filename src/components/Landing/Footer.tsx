@@ -74,7 +74,6 @@ const Footer: React.FC = () => {
             <FooterLink href="/#features">Features</FooterLink>
             <FooterLink href="/#pricing">Pricing</FooterLink>
             <FooterLink href="/about">About</FooterLink>
-            <FooterLink href="/updates">Updates</FooterLink>
             <FooterLink href="/faq">FAQ</FooterLink>
           </div>
 
@@ -83,8 +82,6 @@ const Footer: React.FC = () => {
             <span className="text-xs font-bold font-montserrat tracking-widest uppercase mb-1" style={{ color: colors.text, opacity: 0.35 }}>
               More
             </span>
-            <FooterLink href="/reviews">Reviews</FooterLink>
-            <FooterLink href="/whitepaper">Whitepaper</FooterLink>
             <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
             <FooterLink href="/terms-of-service">Terms of Service</FooterLink>
           </div>
