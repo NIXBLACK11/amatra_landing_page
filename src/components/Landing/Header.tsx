@@ -40,10 +40,8 @@ const Header: React.FC = () => {
             animate={{ y: hidden ? -90 : 0 }}
             transition={{ duration: 0.4, ease: [0.32, 0, 0.67, 0] }}
             style={{
-                backgroundColor: scrolled
-                    ? theme === 'light' ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.85)'
-                    : 'transparent',
-                backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
+                backgroundColor: colors.background,
+                backdropFilter: 'none',
                 borderBottom: `1px solid ${scrolled ? `${colors.text}0e` : 'transparent'}`,
                 transition: 'background-color 0.4s, border-color 0.4s, backdrop-filter 0.4s',
             }}
@@ -186,8 +184,8 @@ const Header: React.FC = () => {
                         transition={{ duration: 0.28, ease: 'easeInOut' }}
                         style={{
                             borderTop: `1px solid ${colors.text}0e`,
-                            backgroundColor: theme === 'light' ? 'rgba(255,255,255,0.97)' : 'rgba(0,0,0,0.97)',
-                            backdropFilter: 'blur(24px)',
+                            backgroundColor: colors.background,
+                            backdropFilter: 'none',
                         }}
                         className="overflow-hidden md:hidden"
                     >

@@ -168,14 +168,6 @@ const Hero: React.FC = () => {
         className="relative w-full lg:w-[42%] order-1 lg:order-2"
         style={{ borderLeft: `1px solid ${colors.text}0a` }}
       >
-        {/* Top fade mask */}
-        <div
-          className="sticky top-0 z-10 h-28 pointer-events-none -mb-28"
-          style={{
-            background: `linear-gradient(to bottom, ${colors.background} 0%, ${colors.background}cc 50%, transparent 100%)`,
-          }}
-        />
-
         <div className="pt-20 pb-10 space-y-0">
           {heroPosts.map((post, index) => (
             <motion.div
@@ -188,14 +180,6 @@ const Hero: React.FC = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom fade mask */}
-        <div
-          className="sticky bottom-0 z-10 h-28 pointer-events-none -mt-28"
-          style={{
-            background: `linear-gradient(to top, ${colors.background} 0%, ${colors.background}cc 50%, transparent 100%)`,
-          }}
-        />
       </div>
 
     </section>
