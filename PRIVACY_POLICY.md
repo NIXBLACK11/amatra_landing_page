@@ -29,10 +29,10 @@ We collect the content you create, upload, or receive from others when using the
 - **Local Storage:** We use on-device local storage (MMKV) to store authentication tokens, theme preferences, and search history. This data stays on your device and is not transmitted to our servers except where required to authenticate your session.
 
 ### 1.4 Payment Information
-Payments for our Premium subscription are processed exclusively through **Razorpay**. We do not store your credit card or bank account details on our servers. Razorpay's use of your personal information is governed by [Razorpay's Privacy Policy](https://razorpay.com/privacy/).
+Payments for our Premium subscription are processed through **Apple In-App Purchase (IAP)**. We do not store your payment card or bank account details on our servers. All billing is handled by Apple and is governed by Apple's Privacy Policy.
 
 ### 1.5 Website (Landing Page) Data
-When you visit our website at amatra.app, we may collect standard web server logs including your IP address, browser type, referring URL, and pages visited. We do not currently use third-party analytics or advertising trackers on our Site.
+When you visit our website at amatra.co, we may collect standard web server logs including your IP address, browser type, referring URL, and pages visited. We do not currently use third-party analytics or advertising trackers on our Site.
 
 ---
 
@@ -53,7 +53,7 @@ We use the collected information for the following purposes:
 
 We do not sell your personal information to third parties. We may share your data in the following limited circumstances:
 
-- **Service Providers:** We share data with third-party vendors who perform services on our behalf, including cloud hosting (Google Cloud Run, `asia-south1`), AI processing, and payment processing (Razorpay). These vendors are contractually bound to use your data only to provide the services we request.
+- **Service Providers:** We share data with third-party vendors who perform services on our behalf, including cloud hosting (Google Cloud Run, `asia-south1`), AI processing, and payment processing (Apple In-App Purchase). These vendors are contractually bound to use your data only to provide the services we request.
 - **Public Content:** Posts, usernames, profile pictures, and outfit content you share are visible to other users of the App. Product names and product URLs attached to wardrobe items are visible in posts you publish.
 - **Third-Party Links:** Outfit posts may contain links to third-party product pages (e.g., clothing brand websites). When you follow these links, you leave our Service and are subject to the privacy policies of those third-party sites. We are not responsible for their data practices.
 - **Legal Requirements:** We may disclose your information if required by law, court order, or to protect the rights, property, or safety of Amatra, its users, or the public.
@@ -72,7 +72,7 @@ Depending on your location, you may have the following rights regarding your per
 - **Objection:** Object to certain processing of your data, such as for direct marketing.
 - **Restriction:** Request that we limit how we process your data in certain circumstances.
 
-To exercise any of these rights, contact us at **legal@amatra.app**. We will respond within 30 days.
+To exercise any of these rights, contact us at **admin@amatra.co**. We will respond within 30 days.
 
 ---
 
@@ -114,6 +114,6 @@ We may update our Privacy Policy from time to time. We will notify you of materi
 
 If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at:
 
-**Email:** legal@amatra.app
+**Email:** admin@amatra.co
 
 We aim to respond to all inquiries within **30 days**.
