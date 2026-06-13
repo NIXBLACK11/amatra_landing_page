@@ -24,7 +24,7 @@ const sections = [
       },
       {
         title: "1.4 Payment Information",
-        content: "Payments for our Premium subscription are processed exclusively through Razorpay. We do not store your credit card or bank account details. Razorpay's use of your information is governed by their Privacy Policy.",
+        content: "Payments for our Premium subscription are processed through Apple In-App Purchase (IAP). We do not store your payment card or bank account details. All billing is handled by Apple and is governed by Apple's Privacy Policy.",
       },
       {
         title: "1.5 Website Data",
@@ -40,12 +40,12 @@ const sections = [
   {
     id: "sharing",
     title: "3. Sharing Your Information",
-    content: "We do not sell your personal information. We may share data with service providers (Google Cloud hosting, AI processing, Razorpay for payments) who are contractually bound to use it only for our services. Public content — posts, usernames, profile pictures, and product links — is visible to other users. Outfit posts may contain links to third-party product pages; when you follow these links you are subject to those sites' own privacy policies. We may also disclose data when required by law or to protect rights and safety.",
+    content: "We do not sell your personal information. We may share data with service providers (Google Cloud hosting, AI processing, Apple In-App Purchase for payments) who are contractually bound to use it only for our services. Public content — posts, usernames, profile pictures, and product links — is visible to other users. Outfit posts may contain links to third-party product pages; when you follow these links you are subject to those sites' own privacy policies. We may also disclose data when required by law or to protect rights and safety.",
   },
   {
     id: "your-rights",
     title: "4. Your Privacy Rights",
-    content: "Depending on your location, you may have the right to: access a copy of your personal data; request correction of inaccurate data; request deletion of your data (available directly via Settings → Delete Account in the App); request a portable copy of your data; object to certain processing; or request restriction of processing. To exercise any of these rights, contact us at legal@amatra.app. We respond within 30 days.",
+    content: "Depending on your location, you may have the right to: access a copy of your personal data; request correction of inaccurate data; request deletion of your data (available directly via Settings → Delete Account in the App); request a portable copy of your data; object to certain processing; or request restriction of processing. To exercise any of these rights, contact us at admin@amatra.co. We respond within 30 days.",
   },
   {
     id: "retention",
@@ -75,7 +75,7 @@ const sections = [
   {
     id: "contact",
     title: "10. Contact Us",
-    content: "If you have any questions, concerns, or requests regarding this Privacy Policy, email us at legal@amatra.app. We aim to respond to all inquiries within 30 days.",
+    content: "If you have any questions, concerns, or requests regarding this Privacy Policy, email us at admin@amatra.co. We aim to respond to all inquiries within 30 days.",
   },
 ];
 
@@ -211,8 +211,8 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <p className="font-geist-mono text-sm" style={{ color: colors.text, opacity: 0.55 }}>
                   Email us at{' '}
-                  <a href="mailto:legal@amatra.app" className="underline" style={{ color: colors.text }}>
-                    legal@amatra.app
+                  <a href="mailto:admin@amatra.co" className="underline" style={{ color: colors.text }}>
+                    admin@amatra.co
                   </a>
                   {' '}— we respond within 30 days.
                 </p>

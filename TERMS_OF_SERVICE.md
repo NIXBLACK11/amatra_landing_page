@@ -97,13 +97,15 @@ Amatra may offer a referral program allowing users to invite others in exchange 
 Amatra offers a "Premium" subscription that provides additional features, including unlimited AI outfit generations and an ad-free experience.
 
 ### 8.2 Pricing and Payment
-- The Premium subscription fee is **USD $5.00 per month** (subject to change with prior notice).
-- Payments are processed via **Razorpay**. By subscribing, you agree to [Razorpay's Terms and Conditions](https://razorpay.com/terms/).
-- Prices may vary by region and are displayed in the App before you subscribe.
+- Amatra offers two paid tiers:
+  - **Stylist** — **USD $4.99 per month** (50 AI try-ons/month)
+  - **Pro** — **USD $11.99 per month** (120 AI try-ons/month)
+- Payments are processed via **Apple In-App Purchase**. By subscribing, you agree to Apple's Media Services Terms and Conditions.
+- Pricing may be subject to change with prior notice.
 
 ### 8.3 Refunds and Cancellations
-- Subscription fees are generally **non-refundable**, except where required by applicable law.
-- You may cancel your subscription at any time through the App or your payment provider's settings. Cancellation takes effect at the end of the current billing cycle; you retain Premium access until that date.
+- Subscription fees are generally **non-refundable**. For refund requests, please contact Apple Support directly.
+- You may cancel your subscription at any time through your Apple ID subscription settings (Settings → Apple ID → Subscriptions). Cancellation takes effect at the end of the current billing cycle; you retain Premium access until that date.
 - We reserve the right to issue refunds or credits at our sole discretion.
 
 ---
@@ -152,7 +154,7 @@ The Service is provided on an **"AS IS"** and **"AS AVAILABLE"** basis without w
 ## 14. Dispute Resolution
 
 ### 14.1 Informal Resolution
-Before filing a formal claim, you agree to first contact us at **legal@amatra.app** and attempt to resolve the dispute informally. We will try to resolve the dispute within **30 days** of receiving your notice.
+Before filing a formal claim, you agree to first contact us at **admin@amatra.co** and attempt to resolve the dispute informally. We will try to resolve the dispute within **30 days** of receiving your notice.
 
 ### 14.2 Governing Law
 These Terms shall be governed by and construed in accordance with the laws of **India**, without regard to its conflict of law principles. Any disputes not resolved informally shall be subject to the exclusive jurisdiction of the courts located in **India**.
@@ -188,6 +190,6 @@ We reserve the right to modify or replace these Terms at any time. For material 
 
 If you have any questions about these Terms, please contact us at:
 
-**Email:** legal@amatra.app
+**Email:** admin@amatra.co
 
 We aim to respond to all inquiries within **30 days**.

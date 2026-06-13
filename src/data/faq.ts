@@ -22,7 +22,7 @@ export const faqs: FAQGroup[] = [
       },
       {
         q: 'Is Amatra free to use?',
-        a: 'Yes. Amatra is free to download and use with a limited number of AI outfit generations per month. Premium subscribers unlock unlimited creations, an ad-free experience, and priority AI generation.',
+        a: 'Yes. Amatra is free to download and use with 1 AI try-on per month. Premium subscribers get more monthly try-ons (50 on Stylist, 120 on Pro), an ad-free experience, and priority support.',
       },
       {
         q: 'What platforms is Amatra available on?',
@@ -56,7 +56,7 @@ export const faqs: FAQGroup[] = [
     questions: [
       {
         q: 'How does the social feed work?',
-        a: 'Your feed shows posts from people you follow. Each post is an outfit you can interact with — like, comment, share, or bookmark. You can also search posts by keyword to discover specific styles, occasions, or seasons.',
+        a: 'Your feed shows posts from people you follow. Each post is an outfit you can interact with — like, comment, share, or bookmark. You can also search posts by keyword or hashtag, and filter by occasion (casual, formal, date, etc.) or season to discover exactly the styles you\'re looking for.',
       },
       {
         q: 'Can I edit my post after publishing?',
@@ -66,6 +66,14 @@ export const faqs: FAQGroup[] = [
         q: 'How do I find people to follow?',
         a: 'Use the Search tab to find posts and discover creators. You can also browse your Connections page for mutual follows and suggestions based on your fashion activity.',
       },
+      {
+        q: 'How do I report inappropriate content?',
+        a: 'Tap the three-dot menu on any post and select Report. You can flag content for reasons like spam, harassment, or inappropriate material. Our moderation team reviews every report.',
+      },
+      {
+        q: 'Does Amatra have a referral program?',
+        a: 'Yes. Every user gets a unique referral code. Share it with friends — when they join using your code, you both earn in-app rewards. You can find your referral code in the app settings.',
+      },
     ],
   },
   {
@@ -73,15 +81,15 @@ export const faqs: FAQGroup[] = [
     questions: [
       {
         q: 'What does Premium include?',
-        a: 'Premium gives you unlimited AI outfit generations (no monthly cap), a completely ad-free experience, and priority generation — your outfits process faster during high-demand periods.',
+        a: 'Amatra offers two paid tiers. Stylist ($4.99/mo) gives you 50 AI try-ons per month plus the ability to copy and remix any outfit. Pro ($11.99/mo) gives you 120 AI try-ons, priority support, and early access to new features. Both tiers remove ads and unlock the full creative experience.',
       },
       {
         q: 'How much does Premium cost?',
-        a: 'Premium is billed monthly. The current price and billing details are available in the app under the Premium screen. Payments are processed securely through Razorpay.',
+        a: 'Stylist is $4.99/month (50 AI try-ons) and Pro is $11.99/month (120 AI try-ons). Payments are processed securely through Apple In-App Purchase on iOS.',
       },
       {
         q: 'Can I cancel Premium anytime?',
-        a: 'Yes. You can cancel your Premium subscription at any time. Your access continues until the end of the current billing period.',
+        a: 'Yes. You can cancel your subscription at any time through your Apple ID subscription settings (Settings → Apple ID → Subscriptions). Your access continues until the end of the current billing period.',
       },
     ],
   },
