@@ -75,6 +75,7 @@ const Footer: React.FC = () => {
             <FooterLink href="/#pricing">Pricing</FooterLink>
             <FooterLink href="/about">About</FooterLink>
             <FooterLink href="/faq">FAQ</FooterLink>
+            <FooterLink href="/support">Support</FooterLink>
           </div>
 
           {/* More */}
