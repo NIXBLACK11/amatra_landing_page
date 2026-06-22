@@ -229,7 +229,7 @@ const Pricing: React.FC = () => {
                             </div>
 
                             {/* CTA */}
-                            {plan.ctaStyle === 'outline' ? (
+                            {/* {plan.ctaStyle === 'outline' ? (
                                 <motion.button
                                     className="w-full py-4 text-sm font-bold font-geist-mono transition-all duration-300"
                                     style={{
@@ -258,7 +258,7 @@ const Pricing: React.FC = () => {
                                 >
                                     {plan.cta}
                                 </motion.button>
-                            )}
+                            )} */}
                         </div>
                     </motion.div>
                 ))}
