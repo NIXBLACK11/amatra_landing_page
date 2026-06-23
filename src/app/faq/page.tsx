@@ -102,26 +102,24 @@ export default function FAQPage() {
             Still have questions?
           </p>
           <p className="font-geist-mono text-sm mb-6" style={{ color: colors.text, opacity: 0.55 }}>
-            Reach out to us on Discord or Twitter — we're friendly.
+            Reach out to us on Instagram or email — we're friendly.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a
-              href="https://discord.com"
+              href="https://www.instagram.com/amatrafashion/"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 font-geist-mono text-sm font-bold transition-opacity duration-150 hover:opacity-80"
               style={{ border: `1px solid ${colors.text}30`, color: colors.text }}
             >
-              Discord
+              Instagram
             </a>
             <a
-              href="https://x.com/_AMATRA_"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:admin@amatra.co"
               className="px-6 py-3 font-geist-mono text-sm font-bold transition-opacity duration-150 hover:opacity-80"
               style={{ border: `1px solid ${colors.text}30`, color: colors.text }}
             >
-              Twitter / X
+              Email
             </a>
           </div>
         </motion.div>
