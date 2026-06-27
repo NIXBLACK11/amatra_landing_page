@@ -111,6 +111,11 @@ const jsonLd = [
     name: "Amatra",
     url: "https://amatra.co",
     description: "AI outfit builder and fashion social app.",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: { "@type": "EntryPoint", urlTemplate: "https://amatra.co/?q={search_term_string}" },
+      "query-input": "required name=search_term_string",
+    },
   },
   {
     "@context": "https://schema.org",
@@ -119,8 +124,14 @@ const jsonLd = [
     operatingSystem: "iOS, Android",
     applicationCategory: "LifestyleApplication",
     description: "Build your virtual wardrobe, compose AI-generated outfit images from your real clothes, and share looks with a fashion-forward community.",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    offers: [
+      { "@type": "Offer", price: "0", priceCurrency: "USD", name: "Free" },
+      { "@type": "Offer", price: "4.99", priceCurrency: "USD", name: "Stylist", billingIncrement: "P1M" },
+      { "@type": "Offer", price: "11.99", priceCurrency: "USD", name: "Pro", billingIncrement: "P1M" },
+    ],
     author: { "@type": "Organization", name: "Amatra" },
+    downloadUrl: "https://apps.apple.com/app/amatra",
+    installUrl: "https://apps.apple.com/app/amatra",
   },
 ];
 

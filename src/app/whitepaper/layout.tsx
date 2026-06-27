@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     description: "The vision, technology, and roadmap behind Amatra.",
     url: "https://amatra.co/whitepaper",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Whitepaper | Amatra",
+    description: "Read the Amatra whitepaper — the vision, technology, and roadmap behind the AI-powered fashion social platform.",
+  },
 };
 
 export default function WhitepaperLayout({ children }: { children: React.ReactNode }) {

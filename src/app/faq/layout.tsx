@@ -10,6 +10,11 @@ export const metadata: Metadata = {
     description: "Everything you need to know about Amatra — the app, features, and community.",
     url: "https://amatra.co/faq",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "FAQ | Amatra",
+    description: "Answers to common questions about Amatra — wardrobe building, AI outfits, the social feed, and Premium.",
+  },
 };
 
 const faqSchema = {

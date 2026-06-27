@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     description: "Learn how Amatra is building the social layer for fashion — outfit creation, AI styling, and a community built around what you wear.",
     url: "https://amatra.co/about",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Amatra",
+    description: "Learn how Amatra is building the social layer for fashion — outfit creation, AI styling, and a community built around what you wear.",
+  },
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
