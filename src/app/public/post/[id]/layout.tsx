@@ -40,8 +40,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   } catch {
     return {
-      title: "Outfit | Amatra",
-      description: "View this AI-composed outfit on Amatra — the fashion social app.",
+      title: "AI Outfit Try-On | Amatra",
+      description:
+        "View this AI-composed outfit on Amatra — the AI outfit try-on app where you build a virtual wardrobe and share fashion looks.",
     };
   }
 }

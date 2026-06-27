@@ -14,15 +14,15 @@ export const faqs: FAQGroup[] = [
     questions: [
       {
         q: 'What is Amatra?',
-        a: 'Amatra is a fashion-focused social app where you build a virtual wardrobe from your real clothes, compose AI-generated outfit images, and share looks with a community of fashion lovers. Think of it as Instagram built specifically for outfit creation and styling.',
+        a: 'Amatra is an AI-powered outfit try-on app and fashion social platform. You build a virtual wardrobe from your real clothes, use AI to compose realistic outfit images, and share your looks with a community of fashion lovers. Think of it as Instagram built specifically for outfit creation, AI styling, and virtual try-ons.',
       },
       {
-        q: 'How do I get started?',
-        a: 'Download the app, sign up with your email, and complete a quick profile setup. Then start uploading photos of your clothing to build your wardrobe — tops, bottoms, outerwear, headwear, footwear. Once you have pieces in your wardrobe, you can start composing outfits.',
+        q: 'How do I get started with Amatra?',
+        a: 'Download the Amatra app for free on iOS or Android, sign up with your email, and complete a quick profile setup. Then start uploading photos of your clothing to build your virtual wardrobe — tops, bottoms, outerwear, headwear, footwear. Once you have pieces in your wardrobe, you can start creating AI outfit try-ons.',
       },
       {
         q: 'Is Amatra free to use?',
-        a: 'Yes. Amatra is free to download and use with 1 AI try-on per month. Premium subscribers get more monthly try-ons (50 on Stylist, 120 on Pro), an ad-free experience, and priority support.',
+        a: 'Yes. Amatra is free to download and use, and includes 1 AI outfit try-on per month. Premium subscribers get more monthly AI try-ons (50 on Stylist, 120 on Pro), an ad-free experience, and priority support.',
       },
       {
         q: 'What platforms is Amatra available on?',
@@ -31,15 +31,32 @@ export const faqs: FAQGroup[] = [
     ],
   },
   {
+    category: 'AI Try-On & Outfit Generation',
+    questions: [
+      {
+        q: 'What is AI outfit try-on?',
+        a: 'Amatra\'s AI outfit try-on lets you virtually see how your real clothes look together as a complete outfit. You select pieces from your virtual wardrobe — a top, bottoms, shoes, outerwear — and the AI generates a realistic full-body image of you wearing that combination. It\'s like trying on clothes virtually before you wear them in real life.',
+      },
+      {
+        q: 'How does Amatra AI outfit try-on work?',
+        a: 'Select pieces from your wardrobe — a top, bottoms, shoes, and optionally outerwear and headwear — then tap Create. Amatra\'s AI composes a realistic full-body outfit image using those exact pieces. The output is a photo-quality image showing exactly how that outfit combination looks together on a model.',
+      },
+      {
+        q: 'How many AI outfit try-ons do I get?',
+        a: 'Free users get 1 AI outfit try-on per month. Stylist subscribers ($4.99/mo) get 50 AI try-ons per month. Pro subscribers ($11.99/mo) get 120 AI try-ons per month. Upgrade at any time from within the app.',
+      },
+      {
+        q: 'How realistic is Amatra\'s AI outfit try-on?',
+        a: 'Amatra generates photo-quality full-body outfit images that show exactly how your selected clothing pieces look together. The AI composes a realistic outfit from the actual items in your virtual wardrobe, giving you a true-to-life preview of the complete look.',
+      },
+    ],
+  },
+  {
     category: 'Wardrobe & Outfits',
     questions: [
       {
-        q: 'What categories can I add to my wardrobe?',
-        a: 'Amatra supports six clothing categories: Headwear, Tops, Outerwear, Bottoms, Footwear, and Model (full-body reference photos). You can add as many items as you like within each category.',
-      },
-      {
-        q: 'How does AI outfit generation work?',
-        a: 'Select pieces from your wardrobe — a top, bottoms, shoes, and optionally outerwear — and tap Create. The AI composes a realistic full-body outfit image using those exact pieces. The output is a photo-quality image of how that combination looks together.',
+        q: 'What categories can I add to my virtual wardrobe?',
+        a: 'Amatra supports six clothing categories: Headwear, Tops, Outerwear, Bottoms, Footwear, and Model (full-body reference photos). You can add as many items as you like within each category to build a complete digital wardrobe.',
       },
       {
         q: 'Can I add product links to my wardrobe items?',
@@ -47,7 +64,7 @@ export const faqs: FAQGroup[] = [
       },
       {
         q: 'What is the Copy Outfit feature?',
-        a: 'When you see another user\'s post, you can tap Copy Outfit. This copies all the outfit components into your wardrobe. You can then swap any piece for something you own, rename the outfit, and generate your own version — all from within the app.',
+        a: 'When you see another user\'s post, you can tap Copy Outfit. This copies all the outfit components into your wardrobe. You can then swap any piece for something you own, rename the outfit, and generate your own AI try-on version — all from within the app.',
       },
     ],
   },

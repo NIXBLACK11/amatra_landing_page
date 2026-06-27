@@ -113,9 +113,9 @@ const Footer: React.FC = () => {
 
       {/* Big brand wordmark */}
       <div className="py-2 w-full overflow-hidden" style={{ backgroundColor: colors.brand }}>
-        <h1 className="text-[4rem] text-black md:text-[20rem] font-bold text-center break-words font-montserrat leading-none tracking-tight">
+        <p className="text-[4rem] text-black md:text-[20rem] font-bold text-center break-words font-montserrat leading-none tracking-tight">
           AMATRA
-        </h1>
+        </p>
       </div>
     </footer>
   );

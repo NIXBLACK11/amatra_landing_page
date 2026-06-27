@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   const { colors } = useTheme();
 
   return (
-    <section id="hero" className="relative flex flex-col-reverse lg:flex-row w-full min-h-screen">
+    <section id="hero" aria-label="Amatra — AI Outfit Try-On App" className="relative flex flex-col-reverse lg:flex-row w-full min-h-screen">
 
       {/* LEFT — sticky brand panel */}
       <div className="w-full lg:w-[58%] order-2 lg:order-1">
@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
             </motion.div>
 
             {/* Headline — Montserrat + Cormorant mix */}
-            <div className="mb-8 leading-none">
+            <h1 className="mb-8 leading-none">
               <motion.span
                 className="block font-montserrat font-black text-[clamp(3.5rem,8vw,8.5rem)] tracking-tight"
                 style={{ color: colors.text }}
@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
                 STYLE
                 <span style={{ color: colors.brand }}>.</span>
               </motion.span>
-            </div>
+            </h1>
 
             {/* Thin accent line */}
             <motion.div
@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
               animate={{ opacity: 0.52, y: 0 }}
               transition={{ duration: 0.7, delay: 0.6 }}
             >
-              Build virtual outfits from your real wardrobe, compose AI looks, and share them with a community of fashion lovers.
+              Build a virtual wardrobe from your real clothes. Use AI to try on outfit combinations and generate realistic looks. Share with a community of fashion lovers.
             </motion.p>
 
             {/* Download buttons */}
@@ -121,7 +121,7 @@ const Hero: React.FC = () => {
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.15 }}
               >
-                <img src="/download/appStore.png" alt="App Store" className="w-full h-full object-contain" />
+                <img src="/download/appStore.png" alt="Download Amatra AI Outfit Try-On App on the App Store" className="w-full h-full object-contain" />
               </motion.button>
               <motion.button
                 className="w-[148px] h-[50px]"
@@ -130,7 +130,7 @@ const Hero: React.FC = () => {
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.15 }}
               >
-                <img src="/download/googlePlay.png" alt="Google Play" className="w-full h-full object-contain" />
+                <img src="/download/googlePlay.png" alt="Download Amatra AI Outfit Try-On App on Google Play" className="w-full h-full object-contain" />
               </motion.button>
             </motion.div>
 

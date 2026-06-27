@@ -2,18 +2,28 @@ import type { Metadata } from "next";
 import { faqs } from "@/data/faq";
 
 export const metadata: Metadata = {
-  title: "FAQ",
-  description: "Answers to common questions about Amatra — wardrobe building, AI outfit generation, the social feed, Premium, and account management.",
+  title: "FAQ — AI Outfit Try-On & Virtual Wardrobe Questions",
+  description:
+    "Answers to common questions about Amatra — how the AI outfit try-on works, virtual wardrobe building, the social fashion feed, Premium plans, and account management.",
   alternates: { canonical: "https://amatra.co/faq" },
+  keywords: [
+    "Amatra FAQ",
+    "Amatra AI try on questions",
+    "AI outfit try on how it works",
+    "virtual wardrobe FAQ",
+    "Amatra help",
+  ],
   openGraph: {
-    title: "FAQ | Amatra",
-    description: "Everything you need to know about Amatra — the app, features, and community.",
+    title: "FAQ — AI Outfit Try-On & Virtual Wardrobe | Amatra",
+    description:
+      "Everything you need to know about Amatra — how the AI outfit try-on works, virtual wardrobe, social feed, and Premium.",
     url: "https://amatra.co/faq",
   },
   twitter: {
     card: "summary_large_image",
-    title: "FAQ | Amatra",
-    description: "Answers to common questions about Amatra — wardrobe building, AI outfits, the social feed, and Premium.",
+    title: "FAQ — AI Outfit Try-On & Virtual Wardrobe | Amatra",
+    description:
+      "Answers to common questions about Amatra — AI outfit try-on, virtual wardrobe, the social feed, and Premium plans.",
   },
 };
 

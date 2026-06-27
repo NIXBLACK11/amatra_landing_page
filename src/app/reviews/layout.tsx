@@ -2,18 +2,28 @@ import type { Metadata } from "next";
 import { reviews } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: "Reviews",
-  description: "See what Amatra users are saying — real reviews from the fashion community on the AI outfit builder and social styling platform.",
+  title: "Reviews — What Users Say About AI Outfit Try-On",
+  description:
+    "See what Amatra users are saying — real reviews from the fashion community on the AI outfit try-on, virtual wardrobe builder, and social styling platform.",
   alternates: { canonical: "https://amatra.co/reviews" },
+  keywords: [
+    "Amatra reviews",
+    "Amatra app reviews",
+    "AI outfit try on reviews",
+    "virtual wardrobe app reviews",
+    "Amatra user feedback",
+  ],
   openGraph: {
-    title: "Reviews | Amatra",
-    description: "Real reviews from the Amatra fashion community.",
+    title: "Reviews — Amatra AI Outfit Try-On App",
+    description:
+      "Real reviews from the Amatra fashion community — what users think of the AI outfit try-on, virtual wardrobe, and social fashion feed.",
     url: "https://amatra.co/reviews",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reviews | Amatra",
-    description: "Real reviews from the Amatra fashion community.",
+    title: "Reviews — Amatra AI Outfit Try-On App",
+    description:
+      "Real reviews from the Amatra fashion community on the AI outfit try-on and virtual wardrobe platform.",
   },
 };
 

@@ -118,12 +118,13 @@ const Features: React.FC = () => {
   return (
     <section
       id="features"
+      aria-label="Amatra AI Outfit Try-On Features"
       className="relative w-full min-h-screen py-20"
       style={{ backgroundColor: colors.background }}
     >
       {/* Header */}
       <div className="text-center mb-20 px-4">
-        <motion.h1
+        <motion.h2
           className="text-5xl md:text-7xl font-black mb-6 font-montserrat"
           style={{ color: colors.text }}
           initial={{ opacity: 0, y: 30 }}
@@ -136,7 +137,7 @@ const Features: React.FC = () => {
           WEAR IT.
           <br />
           SHARE IT.
-        </motion.h1>
+        </motion.h2>
         <motion.p
           className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-geist-mono"
           style={{ color: colors.text, opacity: 0.6 }}
@@ -145,7 +146,7 @@ const Features: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Every tool you need to create, express, and discover fashion — all in one app.
+          Every tool you need to virtually try on outfits, express your style, and discover fashion — all in one app.
         </motion.p>
       </div>
 
