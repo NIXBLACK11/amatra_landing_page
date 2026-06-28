@@ -308,7 +308,15 @@ const Pricing: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.7 }}
             >
-                Cancel anytime. No hidden fees. All prices in USD. Try-ons reset monthly.
+                Cancel anytime. No hidden fees. All prices in USD. Try-ons reset monthly.{' '}
+                Subscriptions automatically renew unless cancelled. By subscribing you agree to our{' '}
+                <a href="/terms-of-service" className="underline" style={{ color: colors.hoverText }}>
+                    Terms of Service
+                </a>
+                {' '}and{' '}
+                <a href="/privacy-policy" className="underline" style={{ color: colors.hoverText }}>
+                    Privacy Policy
+                </a>.
             </motion.p>
         </section>
     );
