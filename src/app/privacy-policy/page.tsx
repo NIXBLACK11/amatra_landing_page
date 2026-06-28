@@ -24,7 +24,7 @@ const sections = [
       },
       {
         title: "1.4 Payment Information",
-        content: "Payments for our Premium subscription are processed through Apple In-App Purchase (IAP). We do not store your payment card or bank account details. All billing is handled by Apple and is governed by Apple's Privacy Policy.",
+        content: "Payments for our Premium subscription are processed through Apple In-App Purchase (IAP). We do not store your payment card or bank account details. All billing is handled by Apple and is governed by Apple's Privacy Policy and Apple's Licensed Application End User License Agreement (EULA).",
       },
       {
         title: "1.5 Website Data",
@@ -141,6 +141,30 @@ export default function PrivacyPolicyPage() {
           >
             Amatra is committed to protecting your privacy. This policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and website.
           </motion.p>
+
+          <motion.div
+            className="flex gap-4 mt-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <a
+              href="/terms-of-service"
+              className="font-geist-mono text-sm underline"
+              style={{ color: colors.text, opacity: 0.5 }}
+            >
+              Terms of Service →
+            </a>
+            <a
+              href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-geist-mono text-sm underline"
+              style={{ color: colors.text, opacity: 0.5 }}
+            >
+              Apple EULA →
+            </a>
+          </motion.div>
         </div>
 
         {/* Divider */}
