@@ -142,13 +142,23 @@ const sections = [
     ],
   },
   {
+    id: "export",
+    title: "16. Export Compliance",
+    content: "You may not use or export the App except as authorised by the laws of the United States and the jurisdiction in which you obtained it. In particular, the App may not be exported or re-exported (a) into any country subject to a U.S. government embargo, or (b) to anyone on the U.S. Treasury Department's Specially Designated Nationals List or the U.S. Department of Commerce Denied Persons List or Entity List. By using the App, you represent and warrant that you are not located in any such country and are not on any such list. You also agree not to use the App for any purpose prohibited by United States law, including the development, design, manufacture, or production of nuclear, missile, or chemical or biological weapons.",
+  },
+  {
+    id: "apple-beneficiary",
+    title: "17. Apple as Third-Party Beneficiary",
+    content: "You acknowledge and agree that Apple Inc. and its subsidiaries are third-party beneficiaries of these Terms and have the right to enforce them against you. Apple is not a party to these Terms and is not responsible for the App or its content. Apple has no obligation to provide maintenance or support for the App. In the event of any failure of the App to conform to any applicable warranty, you may notify Apple and Apple will refund the purchase price (if any) to you; to the maximum extent permitted by law, Apple has no other warranty obligation with respect to the App. Apple is not responsible for addressing any claims by you or any third party relating to the App or your use of it, including product liability claims, consumer protection claims, intellectual property infringement claims, or any claim that the App fails to conform to any applicable legal or regulatory requirement.",
+  },
+  {
     id: "changes",
-    title: "16. Changes to Terms",
+    title: "18. Changes to Terms",
     content: "We reserve the right to modify these Terms at any time. For material changes, we will provide at least 14 days' notice through the App or by email before the new Terms take effect. Continued use of the Service after the effective date of revised Terms constitutes your acceptance of the changes.",
   },
   {
     id: "contact",
-    title: "17. Contact Us",
+    title: "19. Contact Us",
     content: "If you have any questions about these Terms, please contact us at admin@amatra.co. We aim to respond to all inquiries within 30 days.",
   },
 ];

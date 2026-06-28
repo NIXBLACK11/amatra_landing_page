@@ -30,10 +30,6 @@ const sections = [
         title: "1.5 Website Data",
         content: "When you visit our website, we may collect standard server logs including your IP address, browser type, referring URL, and pages visited. We do not currently use third-party analytics or advertising trackers on our site.",
       },
-      {
-        title: "1.6 Location Information",
-        content: "We request your approximate location (country or region level) solely to route your connection to the nearest server, ensuring faster AI outfit generation. For example, a user located in Europe will be directed to a European server endpoint, while a user in Asia will be connected to an Asia-Pacific endpoint — reducing latency and improving generation speed for both. Your location is never stored, never associated with your account, and never used for advertising or profiling — it is discarded immediately after the server is selected. You may deny this permission at any time via device Settings; the app will fall back to our default European server and all features will continue to function normally.",
-      },
     ],
   },
   {
