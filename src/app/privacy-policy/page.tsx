@@ -16,19 +16,31 @@ const sections = [
       },
       {
         title: "1.2 User Content",
-        content: "We collect the content you create, upload, or receive from others. This includes wardrobe photos (images of clothing items you upload to your personal gallery, along with optional product names and product URLs), AI-generated outfit images, and social interactions such as posts, comments, likes, bookmarks, and follows.",
+        content: "We collect the content you create, upload, or receive from others. This includes: wardrobe photos (images of clothing items you upload to your personal gallery, along with optional product names and product URLs); AI-generated outfit images created from your wardrobe; posts (including the outfit image, caption, occasion tag such as casual or formal, and season tag such as spring or winter); and social interactions such as comments, likes, bookmarks, and follows.",
       },
       {
         title: "1.3 Usage and Technical Data",
-        content: "We may collect device information (model, OS version, unique identifiers), server log data (IP address, browser type, usage patterns), and on-device local storage data (authentication tokens, theme preferences, search history). Local storage data stays on your device and is not transmitted to our servers except for authentication.",
+        content: "We may collect device information (model, OS version, unique identifiers) and server log data (IP address, browser type, usage patterns). We also use on-device local storage (MMKV) to store your authentication tokens, theme preference, and search history. Search history is stored exclusively on your device and is never transmitted to our servers.",
       },
       {
-        title: "1.4 Payment Information",
-        content: "Payments for our Premium subscription are processed through Apple In-App Purchase (IAP). We do not store your payment card or bank account details. All billing is handled by Apple and is governed by Apple's Privacy Policy and Apple's Licensed Application End User License Agreement (EULA).",
+        title: "1.4 Device Identifier for Abuse Prevention",
+        content: "When you use the free AI outfit creation feature, the app generates a one-way SHA-256 hash derived from your device's vendor identifier (iOS Identifier for Vendor) or Android ID, combined with your device brand and model name. This hash — which cannot be reverse-engineered back to your device — is sent to our servers solely to enforce the free-tier usage limit and prevent abuse. It is not linked to your Amatra account, not shared with third parties, and is deleted when it is no longer needed for abuse prevention.",
       },
       {
-        title: "1.5 Website Data",
+        title: "1.5 Payment Information",
+        content: "Payments for our Premium subscription are processed through Apple In-App Purchase (IAP). We do not store your payment card or bank account details. All billing is handled by Apple and is governed by Apple's Privacy Policy and Apple's Licensed Application End User License Agreement (EULA). Upon successful purchase, Apple provides us with a transaction ID which we verify server-side to activate your subscription. We store your active subscription tier (e.g. Stylist or Pro) on our servers to unlock the corresponding features in the app.",
+      },
+      {
+        title: "1.6 Website Data",
         content: "When you visit our website, we may collect standard server logs including your IP address, browser type, referring URL, and pages visited. We do not currently use third-party analytics or advertising trackers on our site.",
+      },
+      {
+        title: "1.7 Device Permissions",
+        content: "Amatra requests the following device permissions to enable core features:\n\nPhoto Library (Read): Amatra accesses your photo library so you can select photos of your clothing items to add to your virtual wardrobe. For example, when you tap \"Add Item\" in your wardrobe, you can choose a photo of a jacket from your camera roll; Amatra uses that image to represent the item in your wardrobe and to generate AI outfit combinations.\n\nPhoto Library (Write / Save): When you tap the download button on a wardrobe item, Amatra saves that image to your device's native photo library at your explicit request. Amatra only writes to your photo library when you initiate a save action.\n\nMedia Location (Android): On Android, Amatra requests the ACCESS_MEDIA_LOCATION permission as part of photo library access. This allows the system to include location metadata (EXIF GPS coordinates) embedded in photos. Amatra does not extract, store, or transmit any location coordinates from your photos.\n\nCamera: Amatra accesses your camera so you can take photos of clothing items directly within the app. For example, you can photograph a new shirt and instantly add it to your wardrobe without leaving the app.\n\nMicrophone: iOS requires microphone permission alongside camera access when an app uses the device camera. Amatra requests microphone permission as part of iOS camera functionality used to capture clothing photos. Amatra does not record, transmit, or store any audio from your microphone.",
+      },
+      {
+        title: "1.8 Account Feedback and Reports",
+        content: "When you delete your account, we collect your selected reason for leaving (chosen from a list: Something broken, Not getting value, Privacy concern, Better alternative, or Other) and an optional free-text explanation. This feedback is used solely to improve the Service and is not linked to your account after deletion.\n\nWhen you report another user's post, we collect the report itself (including your user ID and a reference to the reported content) so we can review and act on it. Reports are used exclusively for safety and moderation purposes.",
       },
     ],
   },
@@ -40,7 +52,7 @@ const sections = [
   {
     id: "sharing",
     title: "3. Sharing Your Information",
-    content: "We do not sell your personal information. We may share data with service providers (Google Cloud hosting, AI processing, Apple In-App Purchase for payments) who are contractually bound to use it only for our services. Public content — posts, usernames, profile pictures, and product links — is visible to other users. Outfit posts may contain links to third-party product pages; when you follow these links you are subject to those sites' own privacy policies. We may also disclose data when required by law or to protect rights and safety.",
+    content: "We do not sell your personal information. We may share data with service providers (Google Cloud hosting, AI processing, Apple In-App Purchase for payments) who are contractually bound to use it only for our services.\n\nThe following information is publicly visible to all Amatra users: your username, profile picture, follower and following counts, posts (including outfit images, captions, occasion and season tags), and product names and URLs attached to items in posts you publish.\n\nOutfit posts may contain links to third-party product pages; when you follow these links you are subject to those sites' own privacy policies. We may also disclose data when required by law or to protect rights and safety.",
   },
   {
     id: "your-rights",

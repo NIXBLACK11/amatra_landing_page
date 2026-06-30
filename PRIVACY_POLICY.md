@@ -21,18 +21,38 @@ When you create an account and use Amatra, we may collect:
 We collect the content you create, upload, or receive from others when using the App. This includes:
 - **Wardrobe Photos:** Images of clothing items (headwear, tops, outerwear, bottoms, footwear, etc.) you upload to your personal gallery, along with optional product names and product URLs.
 - **Generated Outfits:** AI-composed outfit images created using your uploaded wardrobe items.
-- **Posts and Social Interactions:** Posts (which include outfit images and captions), comments, likes, bookmarks, follows, and notifications.
+- **Posts and Social Interactions:** Posts (which include outfit images, captions, occasion tags such as casual or formal, and season tags such as spring or winter), comments, likes, bookmarks, follows, and notifications.
 
 ### 1.3 Usage and Technical Data
 - **Device Information:** We may collect information about the device you use to access the App, including device model, operating system version, and unique device identifiers.
 - **Log Data:** Our servers (hosted on Google Cloud Run) automatically record information such as your IP address, browser type, and App usage patterns.
-- **Local Storage:** We use on-device local storage (MMKV) to store authentication tokens, theme preferences, and search history. This data stays on your device and is not transmitted to our servers except where required to authenticate your session.
+- **Local Storage:** We use on-device local storage (MMKV) to store authentication tokens, theme preferences, and search history. Search history is stored exclusively on your device and is never transmitted to our servers. Authentication tokens are transmitted only as required to authenticate your session.
 
-### 1.4 Payment Information
-Payments for our Premium subscription are processed through **Apple In-App Purchase (IAP)**. We do not store your payment card or bank account details on our servers. All billing is handled by Apple and is governed by Apple's Privacy Policy.
+### 1.4 Device Identifier for Abuse Prevention
+When you use the free AI outfit creation feature, the app generates a one-way SHA-256 hash derived from your device's vendor identifier (iOS Identifier for Vendor) or Android ID, combined with your device brand and model name. This hash — which cannot be reverse-engineered back to your device — is sent to our servers solely to enforce the free-tier usage limit and prevent abuse. It is not linked to your Amatra account, not shared with third parties, and is deleted when it is no longer needed for abuse prevention.
 
-### 1.5 Website (Landing Page) Data
+### 1.5 Payment Information
+Payments for our Premium subscription are processed through **Apple In-App Purchase (IAP)**. We do not store your payment card or bank account details on our servers. All billing is handled by Apple and is governed by Apple's Privacy Policy and Apple's Licensed Application End User License Agreement (EULA). Upon successful purchase, Apple provides us with a transaction ID which we verify server-side to activate your subscription. We store your active subscription tier (e.g. Stylist or Pro) on our servers to unlock the corresponding features in the app.
+
+### 1.6 Website (Landing Page) Data
 When you visit our website at amatra.co, we may collect standard web server logs including your IP address, browser type, referring URL, and pages visited. We do not currently use third-party analytics or advertising trackers on our Site.
+
+### 1.7 Device Permissions
+Amatra requests the following device permissions to enable core features:
+
+- **Photo Library (Read):** Amatra accesses your photo library so you can select photos of your clothing items to add to your virtual wardrobe. For example, when you tap "Add Item" in your wardrobe, you can choose a photo of a jacket from your camera roll; Amatra uses that image to represent the item in your wardrobe and to generate AI outfit combinations.
+
+- **Photo Library (Write / Save):** When you tap the download button on a wardrobe item, Amatra saves that image to your device's native photo library at your explicit request. Amatra only writes to your photo library when you initiate a save action.
+
+- **Media Location (Android):** On Android, Amatra requests the `ACCESS_MEDIA_LOCATION` permission as part of photo library access. This allows the system to include location metadata (EXIF GPS coordinates) embedded in photos. Amatra does not extract, store, or transmit any location coordinates from your photos.
+
+- **Camera:** Amatra accesses your camera so you can take photos of clothing items directly within the app. For example, you can photograph a new shirt and instantly add it to your wardrobe without leaving the app.
+
+- **Microphone:** iOS requires microphone permission alongside camera access when an app uses the device camera. Amatra requests microphone permission as part of iOS camera functionality used to capture clothing photos. Amatra does not record, transmit, or store any audio from your microphone.
+
+### 1.8 Account Feedback and Reports
+- **Account Deletion Survey:** When you delete your account, we collect your selected reason for leaving (chosen from: Something broken, Not getting value, Privacy concern, Better alternative, or Other) and an optional free-text explanation. This feedback is used solely to improve the Service and is not linked to your account after deletion.
+- **Content Reports:** When you report another user's post, we collect the report (including your user ID and a reference to the reported content) to enable moderation review. Reports are used exclusively for safety and moderation purposes.
 
 ---
 
@@ -54,7 +74,7 @@ We use the collected information for the following purposes:
 We do not sell your personal information to third parties. We may share your data in the following limited circumstances:
 
 - **Service Providers:** We share data with third-party vendors who perform services on our behalf, including cloud hosting (Google Cloud Run, `asia-south1`), AI processing, and payment processing (Apple In-App Purchase). These vendors are contractually bound to use your data only to provide the services we request.
-- **Public Content:** Posts, usernames, profile pictures, and outfit content you share are visible to other users of the App. Product names and product URLs attached to wardrobe items are visible in posts you publish.
+- **Publicly Visible Information:** The following is visible to all Amatra users: your username, profile picture, follower and following counts, posts (including outfit images, captions, occasion and season tags), and product names and URLs attached to items in posts you publish.
 - **Third-Party Links:** Outfit posts may contain links to third-party product pages (e.g., clothing brand websites). When you follow these links, you leave our Service and are subject to the privacy policies of those third-party sites. We are not responsible for their data practices.
 - **Legal Requirements:** We may disclose your information if required by law, court order, or to protect the rights, property, or safety of Amatra, its users, or the public.
 - **Business Transfers:** In the event of a merger, acquisition, or sale of all or a portion of our assets, your information may be transferred as part of that transaction.
