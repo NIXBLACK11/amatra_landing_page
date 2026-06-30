@@ -120,7 +120,7 @@ Amatra is not intended for children under the age of **13**. We do not knowingly
 
 ## 8. International Data Transfers
 
-Amatra's backend infrastructure is hosted on **Google Cloud Run** in the `asia-south1` region (Mumbai, India). If you are located outside of India, your information may be transferred to and processed in India. We take steps to ensure that appropriate safeguards are in place for such transfers, consistent with applicable data protection laws.
+Amatra's backend infrastructure is hosted on **Google Cloud Run** in Europe. If you are located outside of Europe, your information may be transferred to and processed in Europe. We take steps to ensure that appropriate safeguards are in place for such transfers, consistent with applicable data protection laws.
 
 ---
 

@@ -77,7 +77,7 @@ const sections = [
   {
     id: "international",
     title: "8. International Data Transfers",
-    content: "Amatra's backend infrastructure is hosted on Google Cloud Run in the asia-south1 region (Mumbai, India). If you are located outside of India, your information may be transferred to and processed in India. We take steps to ensure appropriate safeguards are in place consistent with applicable data protection laws.",
+    content: "Amatra's backend infrastructure is hosted on Google Cloud Run in Europe. If you are located outside of Europe, your information may be transferred to and processed in Europe. We take steps to ensure appropriate safeguards are in place consistent with applicable data protection laws.",
   },
   {
     id: "changes",
